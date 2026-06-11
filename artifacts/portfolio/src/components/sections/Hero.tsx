@@ -54,7 +54,7 @@ export default function Hero() {
           <img
             src="/rithesh-photo.jpeg"
             alt="Pandi Rithesh Raja"
-            className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-2 border-primary/50 relative z-10 filter grayscale hover:grayscale-0 transition-all duration-700"
+            className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover object-top border-2 border-primary/50 relative z-10 filter grayscale hover:grayscale-0 transition-all duration-700"
           />
         </motion.div>
 
