@@ -1,107 +1,297 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { GraduationCap, Award, Trophy } from "lucide-react";
+import { motion, Variants } from 'framer-motion';
+import { GraduationCap, Award, Trophy } from 'lucide-react';
+
+const educationData = [
+  {
+    degree: 'B.Tech AI & Data Science',
+    institution: '',
+    period: '2023 - 2027',
+    details: ['3rd Year Student', 'CGPA: 7.5'],
+    active: true,
+  },
+  {
+    degree: 'Intermediate (MPC)',
+    institution: 'Mother Theresa Junior College',
+    period: '',
+    details: ['Score: 86.2%'],
+    active: false,
+  },
+  {
+    degree: 'SSC',
+    institution: 'Elena Bettini High School',
+    period: '',
+    details: ['Score: 96%'],
+    active: false,
+  },
+];
+
+const certifications = [
+  {
+    title: '1st Place — Inter-College Hackathon',
+    year: '2024',
+    description:
+      'Won first place out of numerous teams for developing Drishta-AI',
+    icon: 'trophy' as const,
+    accent: 'primary' as const,
+  },
+  {
+    title: 'Google Cloud Data Analytics Certificate',
+    year: '2026',
+    description:
+      'Certified in BigQuery, SQL, and Looker for enterprise data analysis',
+    icon: 'award' as const,
+    accent: 'secondary' as const,
+  },
+];
+
+const sectionVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 px-6 md:px-12 max-w-6xl mx-auto border-t border-white/5">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
-        className="grid md:grid-cols-2 gap-16"
-      >
-        <div>
-          <div className="flex items-center gap-3 mb-10">
-            <GraduationCap className="w-8 h-8 text-secondary" />
-            <h2 className="text-3xl md:text-4xl font-display font-bold">Education</h2>
-          </div>
-          
-          <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-            
-            <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-card shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_10px_hsl(var(--secondary)/0.5)] z-10 text-secondary">
-                <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-              </div>
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-secondary/30 bg-secondary/5 backdrop-blur">
-                <div className="flex items-center justify-between mb-1">
-                  <div className="text-xs font-mono text-secondary">2023 - 2027</div>
-                </div>
-                <h3 className="font-bold text-lg">B.Tech AI & Data Science</h3>
-                <p className="text-sm text-muted-foreground mb-2">3rd Year Student</p>
-                <div className="inline-block px-2 py-1 bg-background rounded text-xs font-mono text-primary border border-white/5">
-                  CGPA: 7.5
-                </div>
-              </div>
-            </div>
+    <section
+      id="education"
+      className="relative py-24 md:py-32 px-6 overflow-hidden"
+    >
+      {/* Background glow orbs */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-card shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                <div className="w-2 h-2 bg-muted-foreground rounded-full" />
-              </div>
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-white/10 bg-card/50 backdrop-blur">
-                <h3 className="font-bold text-lg">Intermediate (MPC)</h3>
-                <p className="text-sm text-muted-foreground mb-2">Mother Theresa Junior College</p>
-                <div className="inline-block px-2 py-1 bg-background rounded text-xs font-mono text-white/70 border border-white/5">
-                  Score: 86.2%
-                </div>
-              </div>
-            </div>
+      <div className="max-w-6xl mx-auto">
+        {/* Section title */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+            Education &{' '}
+            <span className="gradient-text">Certifications</span>
+          </h2>
+          <p className="text-white/50 max-w-xl mx-auto text-lg">
+            Academic journey and professional achievements
+          </p>
+        </motion.div>
 
-            <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-card shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                <div className="w-2 h-2 bg-muted-foreground rounded-full" />
-              </div>
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-white/10 bg-card/50 backdrop-blur">
-                <h3 className="font-bold text-lg">SSC</h3>
-                <p className="text-sm text-muted-foreground mb-2">Elena Bettini High School</p>
-                <div className="inline-block px-2 py-1 bg-background rounded text-xs font-mono text-white/70 border border-white/5">
-                  Score: 96%
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-        <div>
-          <div className="flex items-center gap-3 mb-10">
-            <Award className="w-8 h-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-display font-bold">Certifications</h2>
-          </div>
-          
-          <div className="space-y-6">
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="p-6 rounded-xl border border-primary/20 bg-primary/5 backdrop-blur flex gap-4"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* ───────────── EDUCATION COLUMN ───────────── */}
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+          >
+            {/* Column header */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-3 mb-10"
             >
-              <div className="mt-1">
-                <Trophy className="w-6 h-6 text-primary" />
+              <div className="p-2.5 rounded-xl bg-secondary/10 border border-secondary/20">
+                <GraduationCap className="w-5 h-5 text-secondary" />
               </div>
-              <div>
-                <div className="text-xs font-mono text-primary mb-1">2024</div>
-                <h3 className="font-bold text-lg mb-1">1st Place — Inter-College Hackathon</h3>
-                <p className="text-sm text-muted-foreground">Won first place out of numerous teams for developing Drishta-AI, a full-stack AI safety platform.</p>
-              </div>
+              <h3 className="text-2xl font-display font-semibold text-white">
+                Education
+              </h3>
             </motion.div>
 
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="p-6 rounded-xl border border-white/10 bg-card/50 backdrop-blur flex gap-4"
+            {/* Timeline */}
+            <div className="relative pl-8">
+              {/* Animated glowing vertical line */}
+              <motion.div
+                className="timeline-line absolute left-[11px] top-2 bottom-2 w-[2px]"
+                style={{
+                  background:
+                    'linear-gradient(to bottom, hsl(263,80%,65%), hsl(263,80%,65%,0.15))',
+                  boxShadow: '0 0 8px hsl(263,80%,65%,0.4)',
+                }}
+                initial={{ scaleY: 0, originY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
+              />
+
+              <div className="space-y-8">
+                {educationData.map((edu, idx) => (
+                  <motion.div
+                    key={edu.degree}
+                    variants={itemVariants}
+                    className="relative"
+                  >
+                    {/* Timeline dot */}
+                    <span
+                      className={`timeline-dot${edu.active ? ' active' : ''} absolute -left-8 top-5 w-[22px] h-[22px] rounded-full border-2 flex items-center justify-center z-10 ${
+                        edu.active
+                          ? 'border-secondary bg-secondary/20 shadow-[0_0_12px_hsl(263,80%,65%,0.5)]'
+                          : 'border-white/20 bg-[hsl(220,20%,12%)]'
+                      }`}
+                    >
+                      {edu.active && (
+                        <span className="block w-2.5 h-2.5 rounded-full bg-secondary animate-pulse" />
+                      )}
+                    </span>
+
+                    {/* Card */}
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                      className={`glass-card rounded-2xl p-5 ${
+                        edu.active
+                          ? 'border-secondary/30 bg-secondary/5'
+                          : 'border-white/10 bg-white/5'
+                      } backdrop-blur border`}
+                    >
+                      <h4 className="text-lg font-display font-semibold text-white mb-1">
+                        {edu.degree}
+                      </h4>
+
+                      {edu.institution && (
+                        <p className="text-white/50 text-sm mb-1">
+                          {edu.institution}
+                        </p>
+                      )}
+
+                      {edu.period && (
+                        <span className="inline-block text-xs font-medium text-secondary bg-secondary/10 rounded-full px-3 py-0.5 mb-3">
+                          {edu.period}
+                        </span>
+                      )}
+
+                      <ul className="space-y-1 mt-2">
+                        {edu.details.map((d) => (
+                          <li
+                            key={d}
+                            className="text-white/60 text-sm flex items-center gap-2"
+                          >
+                            <span className="w-1 h-1 rounded-full bg-secondary/60" />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ───────────── CERTIFICATIONS COLUMN ───────────── */}
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+          >
+            {/* Column header */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-3 mb-10"
             >
-              <div className="mt-1">
-                <Award className="w-6 h-6 text-secondary" />
+              <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20">
+                <Award className="w-5 h-5 text-primary" />
               </div>
-              <div>
-                <div className="text-xs font-mono text-secondary mb-1">2026</div>
-                <h3 className="font-bold text-lg mb-1">Google Cloud Data Analytics Certificate</h3>
-                <p className="text-sm text-muted-foreground">Certified in BigQuery, SQL, and Looker for enterprise data analysis and visualisation.</p>
-              </div>
+              <h3 className="text-2xl font-display font-semibold text-white">
+                Certifications
+              </h3>
             </motion.div>
-          </div>
+
+            <div className="space-y-8">
+              {certifications.map((cert, idx) => {
+                const isPrimary = cert.accent === 'primary';
+                return (
+                  <motion.div
+                    key={cert.title}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    className={`glass-card rounded-2xl p-6 backdrop-blur border cursor-default ${
+                      isPrimary
+                        ? 'border-primary/30 bg-primary/5'
+                        : 'border-secondary/30 bg-secondary/5'
+                    }`}
+                  >
+                    <div className="flex items-start gap-4">
+                      {/* Icon */}
+                      <div
+                        className={`relative flex-shrink-0 p-3 rounded-xl ${
+                          isPrimary
+                            ? 'bg-primary/10 shadow-[0_0_20px_hsl(186,100%,50%,0.25)]'
+                            : 'bg-secondary/10 shadow-[0_0_20px_hsl(263,80%,65%,0.25)]'
+                        }`}
+                      >
+                        {cert.icon === 'trophy' ? (
+                          <>
+                            <Trophy
+                              className="w-6 h-6 text-amber-400 relative z-10"
+                              style={{
+                                filter:
+                                  'drop-shadow(0 0 6px rgba(251,191,36,0.6))',
+                              }}
+                            />
+                            {/* Golden shimmer overlay */}
+                            <motion.div
+                              className="absolute inset-0 rounded-xl"
+                              style={{
+                                background:
+                                  'linear-gradient(105deg, transparent 40%, rgba(251,191,36,0.25) 50%, transparent 60%)',
+                                backgroundSize: '200% 100%',
+                              }}
+                              animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
+                              transition={{
+                                duration: 2.5,
+                                repeat: Infinity,
+                                ease: 'linear',
+                              }}
+                            />
+                          </>
+                        ) : (
+                          <Award className="w-6 h-6 text-secondary" />
+                        )}
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap mb-1">
+                          <h4 className="text-lg font-display font-semibold text-white">
+                            {cert.title}
+                          </h4>
+                          <span
+                            className={`text-xs font-medium rounded-full px-3 py-0.5 ${
+                              isPrimary
+                                ? 'text-primary bg-primary/10'
+                                : 'text-secondary bg-secondary/10'
+                            }`}
+                          >
+                            {cert.year}
+                          </span>
+                        </div>
+                        <p className="text-white/50 text-sm leading-relaxed">
+                          {cert.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
