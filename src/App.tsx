@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
@@ -14,8 +11,6 @@ import Education from "./components/sections/Education";
 import Contact from "./components/sections/Contact";
 import CursorSpotlight from "./components/sections/CursorSpotlight";
 import ParticleField from "./components/sections/ParticleField";
-
-const queryClient = new QueryClient();
 
 function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -141,28 +136,25 @@ function App() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <AnimatePresence mode="wait">
-          {loading && (
-            <LoadingScreen
-              key="loader"
-              onComplete={() => setLoading(false)}
-            />
-          )}
-        </AnimatePresence>
-        {!loading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Portfolio />
-          </motion.div>
+    <>
+      <AnimatePresence mode="wait">
+        {loading && (
+          <LoadingScreen
+            key="loader"
+            onComplete={() => setLoading(false)}
+          />
         )}
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+      </AnimatePresence>
+      {!loading && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Portfolio />
+        </motion.div>
+      )}
+    </>
   );
 }
 
