@@ -1,6 +1,6 @@
 [build]
-  command = "pnpm --filter @workspace/portfolio build"
-  publish = "artifacts/portfolio/dist/public"
+  command = "pnpm build"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
