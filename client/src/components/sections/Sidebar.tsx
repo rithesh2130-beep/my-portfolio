@@ -159,7 +159,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
               <img 
                 src="/rithesh-photo.jpeg" 
                 alt="Pandi Rithesh Raja" 
-                className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" 
+                className="w-full h-full object-cover object-top transition-all duration-500" 
               />
               <span className="absolute bottom-2 right-2 flex h-3.5 w-3.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
