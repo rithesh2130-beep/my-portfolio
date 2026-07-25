@@ -27,14 +27,14 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-24 md:py-32 px-6 overflow-hidden"
+      className="relative py-24 md:py-32 px-6 overflow-hidden bg-slate-50/50"
     >
       {/* ── Large blurred breathe-glow orb ── */}
       <motion.div
         className="breathe-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle, hsl(186,100%,50%,0.08) 0%, hsl(263,80%,65%,0.05) 50%, transparent 70%)',
+            'radial-gradient(circle, rgba(124,58,237,0.06) 0%, rgba(20,184,166,0.03) 50%, transparent 70%)',
         }}
         animate={{
           scale: [1, 1.15, 1],
@@ -57,24 +57,22 @@ export default function Contact() {
         {/* ── Main Card ── */}
         <motion.div
           variants={itemVariants}
-          className="glass-card gradient-border rounded-3xl p-8 md:p-12 bg-white/5 backdrop-blur border border-white/10 text-center mb-10"
+          className="glass-card rounded-3xl p-8 md:p-12 bg-white border border-slate-100 text-center mb-10 shadow-xl shadow-slate-100"
         >
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6"
+            className="text-4xl md:text-6xl font-display font-extrabold leading-tight mb-6 text-slate-900"
           >
-            Let&apos;s build{' '}
-            <span className="gradient-text">the future.</span>
+            Let&apos;s build <span className="gradient-text">something great.</span>
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-white/50 text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-10"
+            className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed mb-10 font-medium"
           >
-            Currently open for roles where I can architect robust systems, push
-            the boundaries of AI, and engineer experiences that matter.
+            I am currently open for junior roles, internships, or interesting freelance opportunities where I can solve actual problems, write clean systems, and build software.
           </motion.p>
 
           {/* ── Contact Methods ── */}
@@ -87,13 +85,14 @@ export default function Contact() {
               href="mailto:23hr1a3045@gmail.com"
               whileHover={{
                 scale: 1.04,
-                boxShadow: '0 0 24px hsl(186,100%,50%,0.2)',
+                boxShadow: '0 8px 24px rgba(124, 58, 237, 0.08)',
+                borderColor: 'rgba(124, 58, 237, 0.3)'
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="glass-card flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white/5 backdrop-blur border border-white/10 text-white/80 hover:text-white hover:border-primary/30 transition-colors w-full sm:w-auto justify-center"
+              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-violet-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
             >
-              <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="text-sm font-medium">23hr1a3045@gmail.com</span>
+              <Mail className="w-4 h-4 text-violet-600 flex-shrink-0" />
+              <span className="text-sm">23hr1a3045@gmail.com</span>
             </motion.a>
 
             {/* Phone */}
@@ -101,13 +100,14 @@ export default function Contact() {
               href="tel:+919347718219"
               whileHover={{
                 scale: 1.04,
-                boxShadow: '0 0 24px hsl(186,100%,50%,0.2)',
+                boxShadow: '0 8px 24px rgba(124, 58, 237, 0.08)',
+                borderColor: 'rgba(124, 58, 237, 0.3)'
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="glass-card flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white/5 backdrop-blur border border-white/10 text-white/80 hover:text-white hover:border-primary/30 transition-colors w-full sm:w-auto justify-center"
+              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-violet-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
             >
-              <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="text-sm font-medium">+91 9347718219</span>
+              <Phone className="w-4 h-4 text-violet-600 flex-shrink-0" />
+              <span className="text-sm">+91 9347718219</span>
             </motion.a>
           </motion.div>
 
@@ -118,36 +118,38 @@ export default function Contact() {
           >
             {/* LinkedIn */}
             <motion.a
-              href="https://linkedin.com"
+              href="https://github.com/rithesh2130-beep" // Using GitHub links as destination
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
               whileHover={{
                 scale: 1.15,
-                backgroundColor: 'hsl(186,100%,50%)',
-                boxShadow: '0 0 28px hsl(186,100%,50%,0.45)',
+                backgroundColor: 'hsl(262, 83%, 58%)',
+                borderColor: 'hsl(262, 83%, 58%)',
+                boxShadow: '0 6px 20px rgba(124, 58, 237, 0.3)',
               }}
               transition={{ type: 'spring', stiffness: 350, damping: 18 }}
-              className="group w-12 h-12 rounded-full flex items-center justify-center border border-white/10 bg-white/5 backdrop-blur transition-colors"
+              className="group w-12 h-12 rounded-full flex items-center justify-center border border-slate-200 bg-white text-slate-500 hover:text-white transition-colors shadow-2xs"
             >
-              <FaLinkedin className="w-5 h-5 text-white/70 group-hover:text-[hsl(220,20%,8%)] transition-colors" />
+              <FaLinkedin className="w-5 h-5 transition-colors" />
             </motion.a>
 
             {/* GitHub */}
             <motion.a
-              href="https://github.com"
+              href="https://github.com/rithesh2130-beep"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
               whileHover={{
                 scale: 1.15,
-                backgroundColor: '#ffffff',
-                boxShadow: '0 0 28px rgba(255,255,255,0.35)',
+                backgroundColor: 'hsl(262, 83%, 58%)',
+                borderColor: 'hsl(262, 83%, 58%)',
+                boxShadow: '0 6px 20px rgba(124, 58, 237, 0.3)',
               }}
               transition={{ type: 'spring', stiffness: 350, damping: 18 }}
-              className="group w-12 h-12 rounded-full flex items-center justify-center border border-white/10 bg-white/5 backdrop-blur transition-colors"
+              className="group w-12 h-12 rounded-full flex items-center justify-center border border-slate-200 bg-white text-slate-500 hover:text-white transition-colors shadow-2xs"
             >
-              <SiGithub className="w-5 h-5 text-white/70 group-hover:text-[hsl(220,20%,8%)] transition-colors" />
+              <SiGithub className="w-5 h-5 transition-colors" />
             </motion.a>
           </motion.div>
         </motion.div>
@@ -157,12 +159,11 @@ export default function Contact() {
           variants={itemVariants}
           className="text-center space-y-2 pt-6"
         >
-          <p className="text-white/25 text-sm">
+          <p className="text-slate-400 text-sm font-semibold">
             &copy; {currentYear} Pandi Rithesh Raja. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs flex items-center justify-center gap-1.5">
-            Engineered with{' '}
-            <Code2 className="w-3.5 h-3.5 text-white/25 inline" />
+          <p className="text-slate-400/70 text-xs flex items-center justify-center gap-1.5 font-medium">
+            Handcrafted with <Code2 className="w-3.5 h-3.5 text-violet-600/70 inline" />
           </p>
         </motion.footer>
       </motion.div>

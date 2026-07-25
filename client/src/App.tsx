@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Switch, Route } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
@@ -11,6 +12,10 @@ import Education from "./components/sections/Education";
 import Contact from "./components/sections/Contact";
 import CursorSpotlight from "./components/sections/CursorSpotlight";
 import ParticleField from "./components/sections/ParticleField";
+
+// Admin components
+import Login from "./components/admin/Login";
+import Dashboard from "./components/admin/Dashboard";
 
 function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -30,7 +35,7 @@ function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-xl flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_25px_hsl(186_100%_50%/0.4)] transition-all duration-300 group"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-violet-100 border border-violet-200 shadow-lg shadow-violet-100 flex items-center justify-center text-violet-600 hover:bg-violet-600 hover:text-white hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] transition-all duration-300 group"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -42,13 +47,13 @@ function ScrollToTop() {
 
 function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
-    const timer = setTimeout(onComplete, 2000);
+    const timer = setTimeout(onComplete, 1800);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center"
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
@@ -64,24 +69,24 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
         </div>
         {/* Orbiting ring */}
         <motion.div
-          className="absolute inset-[-20px] rounded-full border border-primary/30"
+          className="absolute inset-[-20px] rounded-full border border-violet-500/20"
           animate={{ rotate: 360 }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
-          className="absolute inset-[-35px] rounded-full border border-secondary/20"
+          className="absolute inset-[-35px] rounded-full border border-teal-500/10"
           animate={{ rotate: -360 }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />
       </motion.div>
 
       {/* Loading bar */}
-      <motion.div className="mt-12 w-48 h-[2px] bg-white/5 rounded-full overflow-hidden">
+      <motion.div className="mt-12 w-48 h-[2px] bg-slate-100 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-primary via-secondary to-primary rounded-full"
+          className="h-full bg-gradient-to-r from-violet-600 via-teal-400 to-violet-600 rounded-full"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
-          transition={{ duration: 1.8, ease: "easeInOut" }}
+          transition={{ duration: 1.6, ease: "easeInOut" }}
         />
       </motion.div>
 
@@ -90,7 +95,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="mt-4 text-xs font-mono text-muted-foreground tracking-widest uppercase"
+        className="mt-4 text-xs font-mono text-slate-400 tracking-widest uppercase font-semibold"
       >
         Loading Experience...
       </motion.p>
@@ -99,41 +104,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 }
 
 function Portfolio() {
-  return (
-    <div className="relative w-full bg-background min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-primary-foreground noise-overlay">
-      {/* Ambient background layers */}
-      <ParticleField />
-      <CursorSpotlight />
-      
-      {/* Mesh gradient background */}
-      <div className="fixed inset-0 z-0 mesh-gradient pointer-events-none" />
-      
-      <Navbar />
-      <main className="relative z-10 flex flex-col">
-        <Hero />
-        <div className="section-divider" />
-        <About />
-        <div className="section-divider" />
-        <Skills />
-        <div className="section-divider" />
-        <Projects />
-        <div className="section-divider" />
-        <Education />
-        <div className="section-divider" />
-        <Contact />
-      </main>
-      <ScrollToTop />
-    </div>
-  );
-}
-
-function App() {
   const [loading, setLoading] = useState(true);
-
-  // Force dark mode
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
 
   return (
     <>
@@ -150,12 +121,59 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
+          className="relative w-full bg-white min-h-screen overflow-x-hidden selection:bg-violet-200 selection:text-violet-900 noise-overlay"
         >
-          <Portfolio />
+          {/* Ambient background layers */}
+          <ParticleField />
+          <CursorSpotlight />
+          
+          {/* Mesh gradient background */}
+          <div className="fixed inset-0 z-0 mesh-gradient pointer-events-none" />
+          
+          <Navbar />
+          <main className="relative z-10 flex flex-col">
+            <Hero />
+            <div className="section-divider" />
+            <About />
+            <div className="section-divider" />
+            <Skills />
+            <div className="section-divider" />
+            <Projects />
+            <div className="section-divider" />
+            <Education />
+            <div className="section-divider" />
+            <Contact />
+          </main>
+          <ScrollToTop />
         </motion.div>
       )}
     </>
   );
 }
 
-export default App;
+export default function App() {
+  // Set light-mode body classes
+  useEffect(() => {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+    document.body.className = "bg-white text-slate-900 antialiased";
+  }, []);
+
+  return (
+    <Switch>
+      <Route path="/" component={Portfolio} />
+      <Route path="/admin" component={Login} />
+      <Route path="/admin/dashboard" component={Dashboard} />
+      {/* Fallback */}
+      <Route>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 font-sans p-6 text-center">
+          <h2 className="text-3xl font-display font-extrabold text-slate-900 mb-2">404 - Not Found</h2>
+          <p className="text-slate-500 mb-6">The page you are looking for does not exist.</p>
+          <a href="/" className="px-5 py-2.5 rounded-xl bg-violet-600 text-white font-semibold text-sm hover:bg-violet-750 transition-all shadow-md">
+            Go Home
+          </a>
+        </div>
+      </Route>
+    </Switch>
+  );
+}

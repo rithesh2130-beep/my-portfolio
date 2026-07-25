@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function CursorSpotlight() {
@@ -23,20 +23,20 @@ export default function CursorSpotlight() {
 
   return (
     <>
-      {/* Primary spotlight */}
+      {/* Primary spotlight (Violet) */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[1] h-full w-full"
         animate={{
-          background: `radial-gradient(800px circle at ${position.x}px ${position.y}px, hsl(186 100% 50% / 0.06), transparent 40%)`,
+          background: `radial-gradient(800px circle at ${position.x}px ${position.y}px, hsl(262 83% 58% / 0.04), transparent 45%)`,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       />
-      {/* Secondary accent spotlight */}
+      {/* Secondary accent spotlight (Teal) */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[1] h-full w-full"
         animate={{
-          background: `radial-gradient(600px circle at ${position.x + 100}px ${position.y - 100}px, hsl(263 80% 65% / 0.03), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x + 80}px ${position.y - 80}px, hsl(180 100% 38% / 0.03), transparent 40%)`,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.7 }}

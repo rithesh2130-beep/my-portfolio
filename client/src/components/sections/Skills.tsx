@@ -130,10 +130,10 @@ const pillVariants: Variants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="skills" className="py-24 md:py-32 relative overflow-hidden bg-white">
       {/* Ambient glow */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-teal-50/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-violet-50/50 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -144,10 +144,10 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-6"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4 text-slate-900">
             Technical <span className="gradient-text">Arsenal</span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-primary via-secondary to-primary" />
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-600 via-teal-400 to-violet-600" />
         </motion.div>
 
         <motion.p
@@ -155,10 +155,9 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-center text-muted-foreground text-lg max-w-2xl mx-auto mb-14"
+          className="text-center text-slate-500 text-lg max-w-2xl mx-auto mb-14"
         >
-          A curated stack of tools, languages, and platforms used to engineer
-          high-performance systems.
+          A handpicked toolbox of languages, libraries, databases, and platforms I work with.
         </motion.p>
 
         {/* Skill Category Cards */}
@@ -173,17 +172,18 @@ export default function Skills() {
               viewport={{ once: true, margin: "-60px" }}
               whileHover={{
                 y: -4,
-                boxShadow: "0 0 30px 0 hsla(186,100%,50%,0.08)",
+                boxShadow: "0 12px 30px rgba(124, 58, 237, 0.06)",
+                borderColor: "rgba(124, 58, 237, 0.2)"
               }}
-              className="glass-card gradient-border group relative rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden transition-all duration-300 hover:border-primary/25"
+              className="glass-card relative rounded-3xl bg-white border border-slate-100 overflow-hidden transition-all duration-300"
             >
               {/* Subtle gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-secondary/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/[0.02] to-teal-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Card Header */}
-              <div className="relative z-10 flex items-center gap-3 px-6 py-4 border-b border-white/10">
-                <category.icon className="w-5 h-5 text-primary" />
-                <h3 className="font-display font-semibold text-foreground text-lg">
+              <div className="relative z-10 flex items-center gap-3 px-6 py-4.5 border-b border-slate-50">
+                <category.icon className="w-5 h-5 text-violet-600" />
+                <h3 className="font-display font-bold text-slate-900 text-lg">
                   {category.title}
                 </h3>
               </div>
@@ -202,11 +202,13 @@ export default function Skills() {
                     variants={pillVariants}
                     whileHover={{
                       y: -1,
-                      boxShadow: "0 0 16px 0 hsla(186,100%,50%,0.15)",
+                      boxShadow: "0 4px 12px rgba(124, 58, 237, 0.08)",
+                      borderColor: "rgba(124, 58, 237, 0.3)",
+                      color: "hsl(var(--primary))"
                     }}
-                    className="skill-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-medium text-muted-foreground bg-white/[0.04] border border-white/10 cursor-default transition-all duration-250 hover:text-foreground hover:border-primary/30 hover:bg-white/[0.07]"
+                    className="skill-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 bg-slate-50/50 border border-slate-100 cursor-default transition-all duration-250 hover:bg-white"
                   >
-                    <skill.icon className="w-3.5 h-3.5 text-primary/70 group-hover:text-primary transition-colors" />
+                    <skill.icon className="w-3.5 h-3.5 text-violet-600/80 group-hover:text-violet-600 transition-colors" />
                     {skill.name}
                   </motion.span>
                 ))}

@@ -4,6 +4,8 @@ import { ChevronDown, Download, Sparkles } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 
+import { API_BASE_URL } from "../../config";
+
 /* ------------------------------------------------------------------ */
 /*  Custom hook – animates a number from 0 → target over `duration`ms */
 /* ------------------------------------------------------------------ */
@@ -35,14 +37,11 @@ function useCountUp(target: number, duration = 2000, startOnView = true) {
 /*  Floating background orbs                                          */
 /* ------------------------------------------------------------------ */
 const orbs = [
-  { size: 380, x: "10%", y: "15%", color: "hsl(186,100%,50%)", delay: 0 },
-  { size: 260, x: "75%", y: "10%", color: "hsl(263,80%,65%)", delay: 1.2 },
-  { size: 180, x: "60%", y: "70%", color: "hsl(186,100%,50%)", delay: 0.6 },
-  { size: 320, x: "85%", y: "55%", color: "hsl(263,80%,65%)", delay: 1.8 },
-  { size: 140, x: "25%", y: "80%", color: "hsl(186,100%,50%)", delay: 2.4 },
-  { size: 100, x: "45%", y: "35%", color: "hsl(263,80%,65%)", delay: 0.3 },
-  { size: 220, x: "5%",  y: "55%", color: "hsl(186,100%,50%)", delay: 1.5 },
-  { size: 160, x: "50%", y: "5%",  color: "hsl(263,80%,65%)", delay: 2.1 },
+  { size: 380, x: "10%", y: "15%", color: "hsl(262,80%,58%)", delay: 0 },
+  { size: 260, x: "75%", y: "10%", color: "hsl(180,100%,38%)", delay: 1.2 },
+  { size: 180, x: "60%", y: "70%", color: "hsl(262,80%,58%)", delay: 0.6 },
+  { size: 320, x: "85%", y: "55%", color: "hsl(180,100%,38%)", delay: 1.8 },
+  { size: 140, x: "25%", y: "80%", color: "hsl(262,80%,58%)", delay: 2.4 },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -115,30 +114,44 @@ const nameWordVariants: Variants = {
   }),
 };
 
-/* ------------------------------------------------------------------ */
-/*  Metrics data                                                      */
-/* ------------------------------------------------------------------ */
-const metrics = [
-  { value: 4, suffix: "+", label: "Projects Built" },
-  { value: 1, suffix: "st", label: "Hackathon Rank" },
-  { value: 96, suffix: "%", label: "SSC Score" },
-];
-
 /* ================================================================== */
 /*  HERO COMPONENT                                                    */
 /* ================================================================== */
 export default function Hero() {
+  const [projectCount, setProjectCount] = useState(4); // Fallback to 4
+
+  // Fetch dynamic projects count
+  useEffect(() => {
+    fetch(`${API_BASE_URL}/api/projects`)
+      .then(res => {
+        if (res.ok) return res.json();
+        throw new Error();
+      })
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setProjectCount(data.length);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const typedRole = useTypewriter(
     [
       "Full Stack Developer",
       "AI & Data Science Student",
       "Google Cloud Certified",
-      "Problem Solver",
+      "Passionate Builder",
     ],
     85,
     45,
     2400
   );
+
+  const metrics = [
+    { value: projectCount, suffix: "+", label: "Projects Shipped" },
+    { value: 1, suffix: "st", label: "Hackathon Winner" },
+    { value: 96, suffix: "%", label: "Academic Merit" },
+  ];
 
   /* counter hooks (called at top‑level, unconditionally) */
   const c0 = useCountUp(metrics[0].value, 1600);
@@ -149,7 +162,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
     >
       {/* ---- Floating Orbs ---- */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -163,13 +176,13 @@ export default function Hero() {
               left: orb.x,
               top: orb.y,
               background: `radial-gradient(circle, ${orb.color} 0%, transparent 70%)`,
-              opacity: 0.08,
+              opacity: 0.04,
               filter: "blur(80px)",
             }}
             animate={{
-              x: [0, 30, -20, 0],
-              y: [0, -25, 15, 0],
-              scale: [1, 1.15, 0.95, 1],
+              x: [0, 20, -15, 0],
+              y: [0, -15, 10, 0],
+              scale: [1, 1.1, 0.95, 1],
             }}
             transition={{
               duration: 12 + i * 2,
@@ -183,7 +196,7 @@ export default function Hero() {
 
       {/* ---- Content ---- */}
       <motion.div
-        className="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto"
+        className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto pt-24 pb-12"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -192,30 +205,30 @@ export default function Hero() {
         <motion.div
           custom={0}
           variants={fadeUp}
-          className="mb-8 flex items-center gap-2 rounded-full bg-white/5 backdrop-blur border border-white/10 px-5 py-2 text-sm text-white/70"
+          className="mb-8 flex items-center gap-2 rounded-full bg-violet-50/70 border border-violet-100/50 px-5 py-2 text-sm text-violet-700 font-semibold shadow-sm"
         >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
-          <span>Available for Hire</span>
-          <Sparkles className="h-3.5 w-3.5 text-primary" />
+          <span>Open to Collaboration</span>
+          <Sparkles className="h-3.5 w-3.5 text-violet-500" />
         </motion.div>
 
         {/* ---- Profile Photo with Rotating Gradient Ring ---- */}
         <motion.div
           custom={0.15}
           variants={fadeUp}
-          className="relative mb-10 group"
+          className="relative mb-8 group"
         >
           {/* rotating gradient ring */}
           <div className="rotating-gradient-ring absolute -inset-1.5 rounded-full z-0" />
           {/* photo */}
-          <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-2 border-background">
+          <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white shadow-xl">
             <img
               src="/rithesh-photo.jpeg"
               alt="Pandi Rithesh Raja"
-              className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
             />
           </div>
         </motion.div>
@@ -229,7 +242,7 @@ export default function Hero() {
               variants={nameWordVariants}
               initial="hidden"
               animate="visible"
-              className="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-white leading-tight"
+              className="text-5xl sm:text-6xl md:text-7xl font-display font-extrabold text-slate-900 leading-tight tracking-tight"
             >
               {word}
             </motion.span>
@@ -239,7 +252,7 @@ export default function Hero() {
             variants={nameWordVariants}
             initial="hidden"
             animate="visible"
-            className="text-5xl sm:text-6xl md:text-7xl font-display font-bold leading-tight gradient-text"
+            className="text-5xl sm:text-6xl md:text-7xl font-display font-extrabold leading-tight tracking-tight gradient-text"
           >
             Raja
           </motion.span>
@@ -249,31 +262,40 @@ export default function Hero() {
         <motion.p
           custom={0.5}
           variants={fadeUp}
-          className="font-mono text-lg sm:text-xl text-primary/70 mb-10 h-8"
+          className="font-mono text-lg sm:text-xl text-violet-600 font-semibold mb-8 h-8"
         >
           <span>{typedRole}</span>
-          <span className="ml-0.5 inline-block w-[2px] h-5 bg-primary animate-pulse align-middle" />
+          <span className="ml-1 inline-block w-[2px] h-5 bg-violet-600 animate-pulse align-middle" />
+        </motion.p>
+
+        {/* Humanized Subtitle */}
+        <motion.p
+          custom={0.6}
+          variants={fadeUp}
+          className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto leading-relaxed mb-10"
+        >
+          Hey! I'm a student engineer based in India. I love designing intelligent data pipelines, training ML classifiers, and building beautiful, responsive user interfaces.
         </motion.p>
 
         {/* ---- Metric Counters ---- */}
         <motion.div
           custom={0.7}
           variants={fadeUp}
-          className="flex flex-wrap justify-center gap-6 mb-12"
+          className="flex flex-wrap justify-center gap-6 mb-10"
         >
           {metrics.map((m, i) => {
-            const { count, ref } = counters[i];
+            const { count } = counters[i];
             return (
               <div
                 key={m.label}
-                className="flex flex-col items-center min-w-[120px] rounded-2xl bg-white/5 backdrop-blur border border-white/10 px-6 py-4
-                           hover:border-primary/30 transition-colors duration-300"
+                className="flex flex-col items-center min-w-[130px] rounded-3xl bg-white border border-slate-100 px-6 py-4.5
+                           shadow-sm hover:border-violet-200 hover:shadow-md transition-all duration-300"
               >
-                <span ref={ref} className="text-3xl sm:text-4xl font-display font-bold text-white">
+                <span className="text-3xl sm:text-4xl font-display font-black text-slate-900">
                   {count}
                   {m.suffix}
                 </span>
-                <span className="text-xs text-white/50 mt-1 uppercase tracking-wider">
+                <span className="text-[10px] font-bold text-slate-400 mt-1.5 uppercase tracking-wider">
                   {m.label}
                 </span>
               </div>
@@ -285,14 +307,14 @@ export default function Hero() {
         <motion.div
           custom={0.9}
           variants={fadeUp}
-          className="flex flex-wrap justify-center gap-4 mb-10"
+          className="flex flex-wrap justify-center gap-4 mb-16"
         >
           <a
             href="/Rithesh_Raja_FullStack_1781190036910.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-background
-                       shadow-[0_0_24px_hsl(186,100%,50%,0.35)] hover:shadow-[0_0_36px_hsl(186,100%,50%,0.55)]
+            className="group inline-flex items-center gap-2 rounded-2xl bg-violet-600 px-8 py-3.5 text-sm font-semibold text-white
+                       shadow-lg shadow-violet-600/20 hover:shadow-xl hover:shadow-violet-600/35
                        hover:scale-105 active:scale-95 transition-all duration-300"
           >
             <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
@@ -303,9 +325,9 @@ export default function Hero() {
             href="https://github.com/rithesh2130-beep"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur
-                       px-7 py-3 text-sm font-semibold text-white
-                       hover:border-primary/50 hover:text-primary hover:shadow-[0_0_20px_hsl(186,100%,50%,0.15)]
+            className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white
+                       px-8 py-3.5 text-sm font-semibold text-slate-700
+                       hover:border-violet-300 hover:text-violet-600 hover:shadow-md
                        hover:scale-105 active:scale-95 transition-all duration-300"
           >
             <SiGithub className="h-4 w-4" />
@@ -313,48 +335,14 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* ---- Social Links ---- */}
-        <motion.div
-          custom={1.05}
-          variants={fadeUp}
-          className="flex items-center gap-3 mb-16"
-        >
-          {[
-            {
-              icon: <SiGithub className="h-5 w-5" />,
-              href: "https://github.com/rithesh2130-beep",
-              label: "GitHub",
-            },
-            {
-              icon: <FaLinkedin className="h-5 w-5" />,
-              href: "https://linkedin.com/in/pandiritheshraja",
-              label: "LinkedIn",
-            },
-          ].map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="flex items-center justify-center h-10 w-10 rounded-full border border-white/10 bg-white/5
-                         text-white/50 hover:text-primary hover:border-primary/40
-                         hover:shadow-[0_0_14px_hsl(186,100%,50%,0.2)]
-                         transition-all duration-300"
-            >
-              {s.icon}
-            </a>
-          ))}
-        </motion.div>
-
         {/* ---- Scroll Indicator ---- */}
         <motion.a
           href="#about"
           custom={1.2}
           variants={fadeUp}
-          className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/30 hover:text-primary transition-colors"
+          className="flex flex-col items-center gap-1.5 text-slate-400 hover:text-violet-600 transition-colors"
         >
-          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+          <span className="text-[10px] uppercase font-bold tracking-[0.25em]">Discover More</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback } from "react";
 
 interface Particle {
   x: number;
@@ -16,9 +16,9 @@ export default function ParticleField() {
   const mouse = useRef({ x: -1000, y: -1000 });
   const animationFrame = useRef<number>(0);
 
-  const PARTICLE_COUNT = 60;
-  const CONNECTION_DISTANCE = 150;
-  const MOUSE_RADIUS = 200;
+  const PARTICLE_COUNT = 50; // Slightly reduced for performance
+  const CONNECTION_DISTANCE = 140;
+  const MOUSE_RADIUS = 180;
 
   const createParticles = useCallback((width: number, height: number) => {
     const arr: Particle[] = [];
@@ -26,11 +26,11 @@ export default function ParticleField() {
       arr.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.5 + 0.1,
-        hue: Math.random() > 0.5 ? 186 : 263,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        size: Math.random() * 2 + 0.8,
+        opacity: Math.random() * 0.4 + 0.1, // slightly dimmer for light mode
+        hue: Math.random() > 0.5 ? 180 : 262, // matching theme teal (180) and violet (262)
       });
     }
     return arr;
@@ -76,8 +76,8 @@ export default function ParticleField() {
 
         if (dist < MOUSE_RADIUS) {
           const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
-          p.vx -= (dx / dist) * force * 0.02;
-          p.vy -= (dy / dist) * force * 0.02;
+          p.vx -= (dx / dist) * force * 0.015;
+          p.vy -= (dy / dist) * force * 0.015;
         }
 
         // Update position
@@ -85,8 +85,8 @@ export default function ParticleField() {
         p.y += p.vy;
 
         // Damping
-        p.vx *= 0.999;
-        p.vy *= 0.999;
+        p.vx *= 0.99;
+        p.vy *= 0.99;
 
         // Boundaries
         if (p.x < 0) { p.x = 0; p.vx *= -1; }
@@ -105,11 +105,11 @@ export default function ParticleField() {
           const p2 = particles.current[j];
           const d = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
           if (d < CONNECTION_DISTANCE) {
-            const alpha = (1 - d / CONNECTION_DISTANCE) * 0.15;
+            const alpha = (1 - d / CONNECTION_DISTANCE) * 0.08; // subtle line opacity
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `hsla(186, 80%, 50%, ${alpha})`;
+            ctx.strokeStyle = `hsla(${p.hue}, 80%, 60%, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -133,7 +133,7 @@ export default function ParticleField() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 z-0 pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.8 }}
     />
   );
 }

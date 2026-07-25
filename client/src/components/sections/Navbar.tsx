@@ -114,11 +114,11 @@ export default function Navbar() {
         animate="visible"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-background/70 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            ? "bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-[0_4px_30px_rgba(124,58,237,0.02)]"
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           {/* ---- Logo ---- */}
           <a
             href="#hero"
@@ -126,7 +126,7 @@ export default function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-2xl font-display font-bold tracking-tight"
+            className="text-2xl font-display font-extrabold tracking-tight"
           >
             <span className="gradient-text">PR.</span>
           </a>
@@ -140,104 +140,79 @@ export default function Navbar() {
                 <li key={id}>
                   <button
                     onClick={() => handleNavClick(item.href)}
-                    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-                      isActive ? "text-primary" : "text-white/60 hover:text-white"
+                    className={`relative px-4 py-2 text-sm font-semibold transition-colors duration-300 ${
+                      isActive ? "text-violet-600" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {item.label}
 
                     {/* hover underline */}
                     <span
-                      className={`absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-[2px] rounded-full bg-primary transition-all duration-300 ${
-                        isActive ? "w-5" : "w-0 group-hover:w-4"
+                      className={`absolute bottom-0 left-4 right-4 h-0.5 rounded-full bg-violet-600 origin-left transition-transform duration-350 ${
+                        isActive ? "scale-x-100" : "scale-x-0"
                       }`}
                     />
-
-                    {/* active glow dot */}
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-indicator"
-                        className="absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-[2px] w-5 rounded-full bg-primary shadow-[0_0_8px_hsl(186,100%,50%,0.6)]"
-                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                      />
-                    )}
                   </button>
                 </li>
               );
             })}
           </ul>
 
-          {/* ---- Desktop Resume Button ---- */}
-          <a
-            href="/Rithesh_Raja_FullStack_1781190036910.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/30
-                       px-5 py-2 text-xs font-semibold text-primary
-                       hover:bg-primary/20 hover:shadow-[0_0_18px_hsl(186,100%,50%,0.2)]
-                       transition-all duration-300"
-          >
-            <FileDown className="h-3.5 w-3.5" />
-            Resume
-          </a>
+          {/* ---- Desktop Actions (Resume PDF & Admin Portal) ---- */}
+          <div className="hidden md:flex items-center gap-3.5">
+            <a
+              href="/admin"
+              className="text-slate-500 hover:text-violet-600 text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              Console
+            </a>
+            
+            <a
+              href="/Rithesh_Raja_FullStack_1781190036910.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-violet-50 border border-violet-100 px-4 py-2
+                         text-xs font-bold text-violet-700
+                         shadow-sm hover:shadow-md hover:bg-violet-100
+                         transition-all duration-300"
+            >
+              <FileDown className="h-3.5 w-3.5" />
+              Resume
+            </a>
+          </div>
 
-          {/* ---- Mobile Menu Button ---- */}
+          {/* ---- Mobile Menu Trigger ---- */}
           <button
-            onClick={() => setMenuOpen((o) => !o)}
-            className="relative z-50 flex md:hidden items-center justify-center h-10 w-10 rounded-lg
-                       text-white/70 hover:text-white transition-colors"
-            aria-label="Toggle menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-100 bg-slate-50/50 text-slate-600 hover:text-slate-900 md:hidden transition-colors"
+            aria-label="Toggle Menu"
           >
-            <AnimatePresence mode="wait" initial={false}>
-              {menuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="h-6 w-6" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="h-6 w-6" />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </motion.nav>
 
-      {/* ---- Mobile Menu Panel ---- */}
+      {/* ---- Mobile Navigation Panel ---- */}
       <AnimatePresence>
         {menuOpen && (
           <>
             {/* Backdrop */}
             <motion.div
-              key="backdrop"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
               onClick={() => setMenuOpen(false)}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-slate-900/20 backdrop-blur-sm md:hidden"
             />
 
-            {/* Slide‑in Panel */}
+            {/* Menu container */}
             <motion.div
-              key="panel"
               variants={mobileMenuVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-0 right-0 bottom-0 z-40 w-72 bg-background/95 backdrop-blur-xl
-                         border-l border-white/10 flex flex-col pt-24 px-8 md:hidden"
+              className="fixed bottom-0 right-0 top-0 z-40 w-72 max-w-[80vw] bg-white
+                         border-l border-slate-100 flex flex-col pt-24 px-8 md:hidden shadow-2xl"
             >
               {navItems.map((item) => {
                 const id = item.href.replace("#", "");
@@ -247,36 +222,43 @@ export default function Navbar() {
                     key={id}
                     variants={mobileLinkVariants}
                     onClick={() => handleNavClick(item.href)}
-                    className={`text-left py-3 text-lg font-medium border-b border-white/5 transition-colors duration-200 ${
-                      isActive ? "text-primary" : "text-white/60 hover:text-white"
+                    className={`text-left py-3.5 text-lg font-bold border-b border-slate-50 transition-colors duration-200 ${
+                      isActive ? "text-violet-600" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {item.label}
                     {isActive && (
-                      <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_6px_hsl(186,100%,50%,0.5)]" />
+                      <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-violet-600 shadow-[0_0_6px_rgba(124,58,237,0.5)]" />
                     )}
                   </motion.button>
                 );
               })}
 
-              {/* Resume button in mobile menu */}
-              <motion.a
-                variants={mobileLinkVariants}
-                href="/Rithesh_Raja_FullStack_1781190036910.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3
-                           text-sm font-semibold text-background
-                           shadow-[0_0_24px_hsl(186,100%,50%,0.35)]
-                           hover:shadow-[0_0_36px_hsl(186,100%,50%,0.55)]
-                           transition-all duration-300"
-              >
-                <FileDown className="h-4 w-4" />
-                Download Resume
-              </motion.a>
+              {/* Console & Resume buttons in mobile menu */}
+              <motion.div variants={mobileLinkVariants} className="mt-8 flex flex-col gap-4">
+                <a
+                  href="/admin"
+                  className="text-center py-2.5 text-slate-500 hover:text-violet-600 text-xs font-semibold uppercase tracking-wider transition-colors"
+                >
+                  Admin Console
+                </a>
+                
+                <a
+                  href="/Rithesh_Raja_FullStack_1781190036910.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-violet-600 px-6 py-3
+                             text-sm font-semibold text-white
+                             shadow-lg shadow-violet-600/10 hover:shadow-violet-600/30
+                             transition-all duration-300"
+                >
+                  <FileDown className="h-4 w-4" />
+                  Download Resume
+                </a>
+              </motion.div>
 
               {/* Decorative gradient orb */}
-              <div className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-primary/10 blur-[100px]" />
+              <div className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-violet-100/40 blur-[80px]" />
             </motion.div>
           </>
         )}
