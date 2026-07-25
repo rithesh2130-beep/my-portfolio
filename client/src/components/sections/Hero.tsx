@@ -137,9 +137,9 @@ export default function Hero() {
 
   const typedRole = useTypewriter(
     [
-      "Full Stack Developer",
-      "AI & Data Science Student",
-      "Google Cloud Certified",
+      "MERN Stack Developer",
+      "AI & Machine Learning Engineer",
+      "REST API Architect",
       "Passionate Builder",
     ],
     85,

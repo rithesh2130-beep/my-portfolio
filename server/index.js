@@ -28,6 +28,7 @@ const UPLOADS_DIR = path.join(__dirname, "uploads");
 const PROJECTS_FILE = path.join(DATA_DIR, "projects.json");
 const CERTIFICATES_FILE = path.join(DATA_DIR, "certificates.json");
 const ADMIN_FILE = path.join(DATA_DIR, "admin.json");
+const CONTENT_FILE = path.join(DATA_DIR, "content.json");
 
 // Ensure directories exist
 async function initFS() {
@@ -54,6 +55,36 @@ async function initFS() {
       // Default: username 'Rithesh', password 'Apple@1pd'
       const hash = await bcrypt.hash("Apple@1pd", 10);
       await fs.writeFile(ADMIN_FILE, JSON.stringify({ username: "Rithesh", passwordHash: hash }, null, 2));
+    }
+
+    try {
+      await fs.access(CONTENT_FILE);
+    } catch {
+      const defaultContent = {
+        hero: {
+          name: "Pandi Rithesh Raja",
+          tagline: "I build full-stack MERN apps and intelligent AI systems.",
+          bio: "MERN Stack & AI Developer crafting production-ready web platforms, REST APIs, and machine learning powered products."
+        },
+        about: {
+          headline: "Building full stack apps and intelligent systems from scratch.",
+          paragraph1: "I'm a MERN Stack Developer and AI Engineer currently in my 3rd year of B.Tech in AI & Data Science.",
+          paragraph2: "I care deeply about shipping production-ready code — clean REST APIs, authenticated backends with JWT, and AI-powered features.",
+          cta: "Let's ship something great together.",
+          stats: [
+            { value: "3+", label: "MERN Apps Built" },
+            { value: "1st", label: "Hackathon Win" },
+            { value: "AI", label: "ML Models Shipped" }
+          ]
+        },
+        contact: {
+          email: "rithesh2130@gmail.com",
+          github: "https://github.com/rithesh2130-beep",
+          linkedin: "https://www.linkedin.com/in/rithesh2130",
+          location: "India"
+        }
+      };
+      await fs.writeFile(CONTENT_FILE, JSON.stringify(defaultContent, null, 2));
     }
   } catch (err) {
     console.error("FS initialization error:", err);
@@ -187,6 +218,21 @@ app.delete("/api/projects/:id", authenticateToken, async (req, res) => {
   res.json({ message: "Project deleted successfully", id });
 });
 
+app.put("/api/projects/:id", authenticateToken, async (req, res) => {
+  const { id } = req.params;
+  const projects = await readDataFile(PROJECTS_FILE);
+  const idx = projects.findIndex(p => p.id === id);
+
+  if (idx === -1) {
+    return res.status(404).json({ error: "Project not found" });
+  }
+
+  const updated = { ...projects[idx], ...req.body, id };
+  projects[idx] = updated;
+  await writeDataFile(PROJECTS_FILE, projects);
+  res.json(updated);
+});
+
 /* ------------------------------------------------------------------ */
 /*  CERTIFICATES ROUTES                                               */
 /* ------------------------------------------------------------------ */
@@ -248,6 +294,29 @@ app.delete("/api/certificates/:id", authenticateToken, async (req, res) => {
   const filtered = certs.filter(c => c.id !== id);
   await writeDataFile(CERTIFICATES_FILE, filtered);
   res.json({ message: "Certificate deleted successfully", id });
+});
+
+/* ------------------------------------------------------------------ */
+/*  CONTENT ROUTES                                                    */
+/* ------------------------------------------------------------------ */
+app.get("/api/content", async (req, res) => {
+  try {
+    const content = await readDataFile(CONTENT_FILE);
+    res.json(content);
+  } catch {
+    res.status(500).json({ error: "Could not read content" });
+  }
+});
+
+app.put("/api/content", authenticateToken, async (req, res) => {
+  try {
+    const current = await readDataFile(CONTENT_FILE);
+    const updated = { ...current, ...req.body };
+    await writeDataFile(CONTENT_FILE, updated);
+    res.json(updated);
+  } catch {
+    res.status(500).json({ error: "Could not update content" });
+  }
 });
 
 // Start Server

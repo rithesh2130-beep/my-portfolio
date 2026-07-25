@@ -52,8 +52,8 @@ const statCardVariants: Variants = {
 
 const stats = [
   {
-    value: "4+",
-    label: "Projects Built",
+    value: "3+",
+    label: "MERN Apps Built",
     icon: Code2,
   },
   {
@@ -62,23 +62,29 @@ const stats = [
     icon: Trophy,
   },
   {
-    value: "GCP",
-    label: "Data Certified",
+    value: "AI",
+    label: "ML Models Shipped",
     icon: Award,
   },
 ];
 
 const terminalBody = [
   { indent: 2, key: "name", value: '"Pandi Rithesh Raja"' },
-  { indent: 2, key: "status", value: '"🟢 Coding & Building"' },
+  { indent: 2, key: "status", value: '"🟢 Coding & Shipping"' },
   { indent: 2, key: "location", value: '"India"' },
   {
     indent: 2,
-    key: "interests",
+    key: "stack",
     value: null,
-    array: ['"Machine Learning"', '"Full Stack Apps"', '"Data Pipelines"'],
+    array: ['"MongoDB"', '"Express.js"', '"React.js"', '"Node.js"'],
   },
-  { indent: 2, key: "mindset", value: '"Always Learning"' },
+  {
+    indent: 2,
+    key: "aiInterests",
+    value: null,
+    array: ['"Machine Learning"', '"LLMs"', '"AI APIs"'],
+  },
+  { indent: 2, key: "mindset", value: '"Always Building"' },
   { indent: 2, key: "coffeeFuel", value: "true", isKeyword: true },
 ];
 
@@ -115,33 +121,23 @@ export default function About() {
           {/* Left: Rich paragraphs */}
           <motion.div variants={fadeLeft} className="space-y-6">
             <h3 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
-              Wrestling with code to build meaningful interfaces.
+              Building full stack apps and intelligent systems from scratch.
             </h3>
             
             <motion.p
               variants={fadeUp}
               className="text-slate-600 text-base leading-relaxed"
             >
-              I am currently in my 3rd year pursuing a B.Tech in{" "}
-              <strong className="text-slate-900 font-semibold">
-                Artificial Intelligence &amp; Data Science
-              </strong>
-              . I don't really enjoy copying generic tutorials or building boilerplate templates. Instead, I like to roll up my sleeves and build things from scratch—whether that means designing a data process to ingest and clean raw data, coding a reflex arena to benchmark human metrics, or learning GCP hands-on.
+              I'm a <strong className="text-slate-900 font-semibold">MERN Stack Developer and AI Engineer</strong> currently in my 3rd year of B.Tech in AI & Data Science. My day-to-day is writing Express APIs, structuring MongoDB schemas, building React UIs, and wiring ML models into real applications — not just experimenting in Jupyter notebooks.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="text-slate-600 text-base leading-relaxed"
             >
-              I bridge the gap between{" "}
-              <strong className="text-slate-900 font-semibold">
-                data models
-              </strong>{" "}
-              and{" "}
-              <strong className="text-slate-900 font-semibold">
-                clean web applications
-              </strong>
-              . For me, development isn't just about output; it's about details, performance, and building clean interfaces that feel satisfying to interact with. I've taken 1st place in hackathons, analyzed $3.08B in loan data records, and am always looking for the next puzzle to solve.
+              I care deeply about shipping{" "}
+              <strong className="text-slate-900 font-semibold">production-ready code</strong>{" "}
+              — clean REST APIs, authenticated backends with JWT, responsive React frontends, and AI-powered features integrated directly into web products. I've built full stack platforms end-to-end, taken 1st place in hackathons, and I'm always working on the next challenging problem.
             </motion.p>
 
             <motion.div
@@ -150,7 +146,7 @@ export default function About() {
             >
               <span className="font-mono text-violet-600 text-sm font-semibold tracking-wide inline-flex items-center gap-2">
                 <span className="inline-block w-2.5 h-4.5 bg-violet-600 animate-pulse rounded-sm" />
-                &gt; Let's build something authentic.
+                &gt; Let's ship something great together.
               </span>
             </motion.div>
           </motion.div>

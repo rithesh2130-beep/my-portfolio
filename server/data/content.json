@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "name": "Pandi Rithesh Raja",
+    "tagline": "I build full-stack MERN apps and intelligent AI systems.",
+    "bio": "MERN Stack & AI Developer crafting production-ready web platforms, REST APIs, and machine learning powered products."
+  },
+  "about": {
+    "headline": "Building full stack apps and intelligent systems from scratch.",
+    "paragraph1": "I'm a MERN Stack Developer and AI Engineer currently in my 3rd year of B.Tech in AI & Data Science. My day-to-day is writing Express APIs, structuring MongoDB schemas, building React UIs, and wiring ML models into real applications — not just experimenting in Jupyter notebooks.",
+    "paragraph2": "I care deeply about shipping production-ready code — clean REST APIs, authenticated backends with JWT, responsive React frontends, and AI-powered features integrated directly into web products. I've built full stack platforms end-to-end, taken 1st place in hackathons, and I'm always working on the next challenging problem.",
+    "cta": "Let's ship something great together.",
+    "stats": [
+      { "value": "3+", "label": "MERN Apps Built" },
+      { "value": "1st", "label": "Hackathon Win" },
+      { "value": "AI", "label": "ML Models Shipped" }
+    ]
+  },
+  "contact": {
+    "email": "rithesh2130@gmail.com",
+    "github": "https://github.com/rithesh2130-beep",
+    "linkedin": "https://www.linkedin.com/in/rithesh2130",
+    "location": "India"
+  }
+}

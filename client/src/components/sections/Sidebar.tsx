@@ -172,11 +172,11 @@ export default function Sidebar({ activeSection }: SidebarProps) {
               <h2 className="font-display font-extrabold text-slate-900 text-lg leading-tight tracking-tight">
                 Pandi Rithesh Raja
               </h2>
-              <p className="text-[11px] font-bold font-mono text-violet-655 uppercase tracking-wide">
-                MERN & AI Developer
+              <p className="text-[11px] font-bold font-mono text-violet-600 uppercase tracking-wide">
+                MERN Stack & AI Developer
               </p>
               <p className="text-[10px] font-semibold text-slate-400">
-                B.Tech AI & Data Science (Yr 3)
+                Building · Learning · Shipping
               </p>
             </div>
 

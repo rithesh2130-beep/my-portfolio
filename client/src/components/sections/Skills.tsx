@@ -6,24 +6,23 @@ import {
   SiCss,
   SiJavascript,
   SiReact,
-  SiFlask,
-  SiGooglecloud,
-  SiLooker,
+  SiMongodb,
+  SiExpress,
+  SiNodedotjs,
   SiGit,
   SiGithub,
   SiJupyter,
-  SiLinux,
+  SiTensorflow,
+  SiScikitlearn,
+  SiDocker,
 } from "react-icons/si";
 import {
   Database,
   Layout,
   Server,
-  Cloud,
   Terminal,
   Code2,
   BarChart2,
-  BarChart,
-  FileCode,
 } from "lucide-react";
 import type { IconType } from "react-icons";
 import type { LucideIcon } from "lucide-react";
@@ -43,22 +42,22 @@ interface SkillCategory {
 
 const categories: SkillCategory[] = [
   {
-    title: "Languages",
+    title: "MERN Stack",
     icon: Code2,
     skills: [
-      { name: "Python", icon: SiPython },
-      { name: "Java", icon: FileCode },
-      { name: "SQL", icon: SiSqlite },
-      { name: "HTML5", icon: SiHtml5 },
-      { name: "CSS3", icon: SiCss },
-      { name: "JavaScript", icon: SiJavascript },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Express.js", icon: SiExpress },
+      { name: "React.js", icon: SiReact },
+      { name: "Node.js", icon: SiNodedotjs },
     ],
   },
   {
     title: "Frontend",
     icon: Layout,
     skills: [
-      { name: "React.js", icon: SiReact },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "HTML5", icon: SiHtml5 },
+      { name: "CSS3", icon: SiCss },
       { name: "Responsive UI", icon: Layout },
     ],
   },
@@ -66,21 +65,20 @@ const categories: SkillCategory[] = [
     title: "Backend & API",
     icon: Server,
     skills: [
-      { name: "Flask", icon: SiFlask },
       { name: "REST APIs", icon: Server },
-      { name: "ETL", icon: Database },
+      { name: "JWT Auth", icon: Database },
+      { name: "Python", icon: SiPython },
+      { name: "SQL", icon: SiSqlite },
     ],
   },
   {
-    title: "Databases & Cloud",
-    icon: Cloud,
+    title: "AI & Machine Learning",
+    icon: BarChart2,
     skills: [
-      { name: "GCP", icon: SiGooglecloud },
-      { name: "BigQuery", icon: Database },
-      { name: "Looker", icon: SiLooker },
-      { name: "Power BI", icon: BarChart2 },
-      { name: "Tableau", icon: BarChart },
-      { name: "MySQL", icon: Database },
+      { name: "TensorFlow", icon: SiTensorflow },
+      { name: "Scikit-Learn", icon: SiScikitlearn },
+      { name: "Jupyter", icon: SiJupyter },
+      { name: "LLM APIs", icon: Code2 },
     ],
   },
   {
@@ -89,9 +87,8 @@ const categories: SkillCategory[] = [
     skills: [
       { name: "Git", icon: SiGit },
       { name: "GitHub", icon: SiGithub },
+      { name: "Docker", icon: SiDocker },
       { name: "VS Code", icon: Code2 },
-      { name: "Jupyter", icon: SiJupyter },
-      { name: "Linux CLI", icon: SiLinux },
     ],
   },
 ];
