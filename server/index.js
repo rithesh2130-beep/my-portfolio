@@ -51,9 +51,9 @@ async function initFS() {
     try {
       await fs.access(ADMIN_FILE);
     } catch {
-      // Default: username 'admin', password 'admin123'
-      const hash = await bcrypt.hash("admin123", 10);
-      await fs.writeFile(ADMIN_FILE, JSON.stringify({ username: "admin", passwordHash: hash }, null, 2));
+      // Default: username 'Rithesh', password 'Apple@1pd'
+      const hash = await bcrypt.hash("Apple@1pd", 10);
+      await fs.writeFile(ADMIN_FILE, JSON.stringify({ username: "Rithesh", passwordHash: hash }, null, 2));
     }
   } catch (err) {
     console.error("FS initialization error:", err);

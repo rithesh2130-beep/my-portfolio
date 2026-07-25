@@ -215,24 +215,6 @@ export default function Hero() {
           <Sparkles className="h-3.5 w-3.5 text-violet-500" />
         </motion.div>
 
-        {/* ---- Profile Photo with Rotating Gradient Ring ---- */}
-        <motion.div
-          custom={0.15}
-          variants={fadeUp}
-          className="relative mb-8 group"
-        >
-          {/* rotating gradient ring */}
-          <div className="rotating-gradient-ring absolute -inset-1.5 rounded-full z-0" />
-          {/* photo */}
-          <div className="relative z-10 w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-white shadow-xl">
-            <img
-              src="/rithesh-photo.jpeg"
-              alt="Pandi Rithesh Raja"
-              className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
-        </motion.div>
-
         {/* ---- Name ---- */}
         <div className="flex flex-wrap justify-center gap-x-4 mb-4 perspective-[600px]">
           {["Pandi", "Rithesh"].map((word, i) => (

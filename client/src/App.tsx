@@ -3,7 +3,7 @@ import { Switch, Route } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
-import Navbar from "./components/sections/Navbar";
+import Sidebar from "./components/sections/Sidebar";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
@@ -105,6 +105,41 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
 function Portfolio() {
   const [loading, setLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState("about");
+
+  // IntersectionObserver for Scroll-Spy
+  useEffect(() => {
+    if (loading) return;
+    const sections = ["about", "skills", "projects", "education", "contact"];
+    const observerOptions = {
+      root: null,
+      rootMargin: "-25% 0px -55% 0px", // focus area in the viewport
+      threshold: 0.05,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Give DOM elements a tiny moment to mount
+    const timer = setTimeout(() => {
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [loading]);
 
   return (
     <>
@@ -121,7 +156,7 @@ function Portfolio() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative w-full bg-white min-h-screen overflow-x-hidden selection:bg-violet-200 selection:text-violet-900 noise-overlay"
+          className="relative w-full bg-white min-h-screen overflow-x-hidden selection:bg-violet-200 selection:text-violet-900 flex flex-col md:flex-row noise-overlay"
         >
           {/* Ambient background layers */}
           <ParticleField />
@@ -130,8 +165,11 @@ function Portfolio() {
           {/* Mesh gradient background */}
           <div className="fixed inset-0 z-0 mesh-gradient pointer-events-none" />
           
-          <Navbar />
-          <main className="relative z-10 flex flex-col">
+          {/* Sticky Left Sidebar */}
+          <Sidebar activeSection={activeSection} />
+
+          {/* Right Scrollable Content Pane */}
+          <main className="flex-grow min-w-0 relative z-10 flex flex-col bg-slate-50/20">
             <Hero />
             <div className="section-divider" />
             <About />
