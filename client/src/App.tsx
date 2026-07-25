@@ -169,7 +169,7 @@ function Portfolio() {
           <Sidebar activeSection={activeSection} />
 
           {/* Right Scrollable Content Pane */}
-          <main className="flex-grow min-w-0 relative z-10 flex flex-col bg-slate-50/20">
+          <main className="flex-grow min-w-0 relative z-10 flex flex-col bg-slate-50/20 md:pl-80 lg:pl-96">
             <Hero />
             <div className="section-divider" />
             <About />
