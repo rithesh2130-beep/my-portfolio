@@ -34,7 +34,7 @@ export default function Contact() {
         className="breathe-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle, rgba(124,58,237,0.06) 0%, rgba(20,184,166,0.03) 50%, transparent 70%)',
+            'radial-gradient(circle, rgba(16,185,129,0.06) 0%, rgba(245,158,11,0.03) 50%, transparent 70%)',
         }}
         animate={{
           scale: [1, 1.15, 1],
@@ -85,8 +85,8 @@ export default function Contact() {
               href="mailto:23hr1a3045@gmail.com"
               whileHover={{
                 scale: 1.04,
-                boxShadow: '0 8px 24px rgba(124, 58, 237, 0.08)',
-                borderColor: 'rgba(124, 58, 237, 0.3)'
+                boxShadow: '0 8px 24px rgba(16, 185, 129, 0.08)',
+                borderColor: 'rgba(16, 185, 129, 0.3)'
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-emerald-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
@@ -100,8 +100,8 @@ export default function Contact() {
               href="tel:+919347718219"
               whileHover={{
                 scale: 1.04,
-                boxShadow: '0 8px 24px rgba(124, 58, 237, 0.08)',
-                borderColor: 'rgba(124, 58, 237, 0.3)'
+                boxShadow: '0 8px 24px rgba(16, 185, 129, 0.08)',
+                borderColor: 'rgba(16, 185, 129, 0.3)'
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-emerald-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
@@ -124,9 +124,9 @@ export default function Contact() {
               aria-label="LinkedIn"
               whileHover={{
                 scale: 1.15,
-                backgroundColor: 'hsl(262, 83%, 58%)',
-                borderColor: 'hsl(262, 83%, 58%)',
-                boxShadow: '0 6px 20px rgba(124, 58, 237, 0.3)',
+                backgroundColor: 'hsl(142, 76%, 40%)',
+                borderColor: 'hsl(142, 76%, 40%)',
+                boxShadow: '0 6px 20px rgba(16, 185, 129, 0.3)',
               }}
               transition={{ type: 'spring', stiffness: 350, damping: 18 }}
               className="group w-12 h-12 rounded-full flex items-center justify-center border border-slate-200 bg-white text-slate-500 hover:text-white transition-colors shadow-2xs"
@@ -142,9 +142,9 @@ export default function Contact() {
               aria-label="GitHub"
               whileHover={{
                 scale: 1.15,
-                backgroundColor: 'hsl(262, 83%, 58%)',
-                borderColor: 'hsl(262, 83%, 58%)',
-                boxShadow: '0 6px 20px rgba(124, 58, 237, 0.3)',
+                backgroundColor: 'hsl(142, 76%, 40%)',
+                borderColor: 'hsl(142, 76%, 40%)',
+                boxShadow: '0 6px 20px rgba(16, 185, 129, 0.3)',
               }}
               transition={{ type: 'spring', stiffness: 350, damping: 18 }}
               className="group w-12 h-12 rounded-full flex items-center justify-center border border-slate-200 bg-white text-slate-500 hover:text-white transition-colors shadow-2xs"

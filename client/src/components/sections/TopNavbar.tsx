@@ -85,7 +85,7 @@ export default function TopNavbar({ activeSection }: TopNavbarProps) {
                 {isActive && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-xl bg-emerald-50 border border-emerald-100 -z-10"
+                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-50/80 to-amber-50/30 border border-emerald-100/50 -z-10 shadow-2xs"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
