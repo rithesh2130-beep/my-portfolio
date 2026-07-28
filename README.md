@@ -61,16 +61,6 @@ pnpm dev
 ```
 * **Frontend:** `http://localhost:5173/`
 * **Backend:** `http://localhost:5001/`
-
----
-
-## 🔒 Credentials
-To access the developer administration dashboard and manage your portfolio content, go to `http://localhost:5173/admin` and use:
-* **Username:** `Rithesh`
-* **Password:** `Apple@1pd`
-
----
-
 ## 📂 Project Structure
 ```text
 ├── client/                      # React Frontend
