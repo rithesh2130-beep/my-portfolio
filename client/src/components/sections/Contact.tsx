@@ -27,7 +27,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-24 md:py-32 px-6 overflow-hidden bg-slate-50/50"
+      className="relative pt-10 pb-20 md:pt-14 md:pb-24 px-6 overflow-hidden bg-slate-50/50"
     >
       {/* ── Large blurred breathe-glow orb ── */}
       <motion.div

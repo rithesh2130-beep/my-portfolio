@@ -100,7 +100,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative py-24 md:py-32 px-6 overflow-hidden bg-white"
+      className="relative pt-10 pb-20 md:pt-14 md:pb-24 px-6 overflow-hidden bg-white"
     >
       {/* Background glow orbs */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-50/40 rounded-full blur-[120px] pointer-events-none" />

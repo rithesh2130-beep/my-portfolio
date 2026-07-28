@@ -127,7 +127,7 @@ const pillVariants: Variants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 md:py-32 relative overflow-hidden bg-white">
+    <section id="skills" className="pt-10 pb-20 md:pt-14 md:pb-24 relative overflow-hidden bg-white">
       {/* Ambient glow */}
       <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-amber-50/40 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-emerald-50/50 rounded-full blur-[100px] pointer-events-none" />

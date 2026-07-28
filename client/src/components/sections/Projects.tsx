@@ -300,7 +300,7 @@ export default function Projects() {
   const gridProjects = projects.filter(p => p.id !== (featured?.id || ''));
 
   return (
-    <section id="projects" className="relative py-24 md:py-32 overflow-hidden bg-slate-50/50">
+    <section id="projects" className="relative pt-10 pb-20 md:pt-14 md:pb-24 overflow-hidden bg-slate-50/50">
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-emerald-100/30 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-100/20 rounded-full blur-[120px] pointer-events-none" />
 
