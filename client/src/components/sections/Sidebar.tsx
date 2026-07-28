@@ -39,11 +39,20 @@ export default function Sidebar({ activeSection }: SidebarProps) {
   // Framer Motion 3D tilt values
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const rotateX = useTransform(mouseY, [-100, 100], [12, -12]);
-  const rotateY = useTransform(mouseX, [-100, 100], [-12, 12]);
-  const springConfig = { damping: 20, stiffness: 150 };
+  
+  // Increased tilt ranges (from 12 to 28 degrees) for dramatic 3D movement
+  const rotateX = useTransform(mouseY, [-120, 120], [28, -28]);
+  const rotateY = useTransform(mouseX, [-120, 120], [-28, 28]);
+  
+  // Translation shift (shifting the card center dynamically towards the mouse)
+  const translateX = useTransform(mouseX, [-120, 120], [-18, 18]);
+  const translateY = useTransform(mouseY, [-120, 120], [-18, 18]);
+  
+  const springConfig = { damping: 15, stiffness: 120 }; // slightly softer spring for smooth elastic feel
   const springRotateX = useSpring(rotateX, springConfig);
   const springRotateY = useSpring(rotateY, springConfig);
+  const springTranslateX = useSpring(translateX, springConfig);
+  const springTranslateY = useSpring(translateY, springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -131,7 +140,13 @@ export default function Sidebar({ activeSection }: SidebarProps) {
           <motion.div
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            style={{ rotateX: springRotateX, rotateY: springRotateY, transformStyle: "preserve-3d" }}
+            style={{
+              rotateX: springRotateX,
+              rotateY: springRotateY,
+              x: springTranslateX,
+              y: springTranslateY,
+              transformStyle: "preserve-3d"
+            }}
             animate={{ rotate: [0, -1.2, 1.2, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="relative w-full max-w-[250px] bg-white/45 backdrop-blur-xl rounded-[24px] border border-emerald-600/25 shadow-lg shadow-emerald-900/5 p-5 mt-[-1px] select-none hover:shadow-xl hover:border-emerald-400 transition-all duration-300 group cursor-grab active:cursor-grabbing"
