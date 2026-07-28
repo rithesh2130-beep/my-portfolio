@@ -259,7 +259,7 @@ export default function About() {
               className="glass-card group relative rounded-3xl p-6 text-center bg-white border border-slate-100 shadow-sm cursor-default transition-all duration-300"
             >
               {/* Glow accent */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-600/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />-none" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-600/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div className="relative z-10">
                 <stat.icon className="w-6 h-6 text-violet-600 mx-auto mb-3 opacity-60 group-hover:opacity-100 transition-opacity" />
