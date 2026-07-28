@@ -320,7 +320,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
           <span className="text-slate-500 text-sm font-semibold">Verifying Auth Session...</span>
         </div>
       </div>
@@ -328,12 +328,12 @@ export default function Dashboard() {
   }
 
   const inputCls =
-    "w-full px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100 transition-all bg-white";
+    "w-full px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all bg-white";
   const textareaCls =
-    "w-full px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-100 transition-all resize-none bg-white";
+    "w-full px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 transition-all resize-none bg-white";
   const labelCls = "block text-xs font-bold uppercase text-slate-500 mb-1 mt-3";
   const saveBtnCls =
-    "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 text-white font-semibold text-sm hover:bg-violet-700 transition-all disabled:opacity-50";
+    "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-all disabled:opacity-50";
 
   const tabs: { id: TabType; label: string; icon: React.ReactNode }[] = [
     { id: "projects", label: "Projects", icon: <FolderGit2 className="w-4 h-4" /> },
@@ -348,7 +348,7 @@ export default function Dashboard() {
       <header className="bg-white border-b border-slate-100 sticky top-0 z-30 shadow-sm shadow-slate-100/40">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-violet-50 text-violet-600 border border-violet-100">
+            <div className="p-2 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
             <span className="font-display font-bold text-xl text-slate-900">Admin Dashboard</span>
@@ -360,7 +360,7 @@ export default function Dashboard() {
             </span>
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-2 rounded-xl bg-rose-50 border border-rose-100 px-4 py-2 text-sm font-semibold text-rose-600 hover:bg-rose-100 transition-colors"
+              className="inline-flex items-center gap-2 rounded-xl bg-amber-50 border border-amber-100 px-4 py-2 text-sm font-semibold text-amber-600 hover:bg-amber-100 transition-colors"
             >
               <LogOut className="w-4 h-4" />
               Logout
@@ -376,7 +376,7 @@ export default function Dashboard() {
             className={`fixed top-20 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-2xl border text-sm font-semibold shadow-xl transition-all duration-300 ${
               message.type === "success"
                 ? "bg-emerald-50 border-emerald-100 text-emerald-600"
-                : "bg-rose-50 border-rose-100 text-rose-600"
+                : "bg-amber-50 border-amber-100 text-amber-600"
             }`}
           >
             {message.text}
@@ -391,7 +391,7 @@ export default function Dashboard() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-5 py-3 border-b-2 font-semibold text-sm -mb-px transition-all whitespace-nowrap ${
                 activeTab === tab.id
-                  ? "border-violet-600 text-violet-600"
+                  ? "border-emerald-600 text-emerald-600"
                   : "border-transparent text-slate-400 hover:text-slate-600"
               }`}
             >
@@ -409,7 +409,7 @@ export default function Dashboard() {
             {/* Add Form */}
             <div className="lg:col-span-1 bg-white border border-slate-100 p-6 rounded-3xl shadow-sm">
               <form onSubmit={handleAddProject} className="space-y-3">
-                <div className="flex items-center gap-2 text-violet-600 mb-2">
+                <div className="flex items-center gap-2 text-emerald-600 mb-2">
                   <PlusCircle className="w-5 h-5" />
                   <h3 className="font-display font-bold text-lg text-slate-900">Add New Project</h3>
                 </div>
@@ -450,10 +450,10 @@ export default function Dashboard() {
                   <input type="text" value={pLink} onChange={(e) => setPLink(e.target.value)} placeholder="https://github.com/..." className={inputCls} />
                 </div>
                 <div className="flex items-center gap-2 py-1">
-                  <input type="checkbox" id="pFeatured" checked={pFeatured} onChange={(e) => setPFeatured(e.target.checked)} className="h-4 w-4 accent-violet-600 border-slate-300 rounded" />
+                  <input type="checkbox" id="pFeatured" checked={pFeatured} onChange={(e) => setPFeatured(e.target.checked)} className="h-4 w-4 accent-emerald-600 border-slate-300 rounded" />
                   <label htmlFor="pFeatured" className="text-sm font-semibold text-slate-700 select-none cursor-pointer">Feature on Hero</label>
                 </div>
-                <button type="submit" disabled={actionLoading} className="w-full py-2.5 rounded-xl bg-violet-600 text-white font-semibold text-sm hover:bg-violet-700 transition-all disabled:opacity-50 mt-1">
+                <button type="submit" disabled={actionLoading} className="w-full py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-all disabled:opacity-50 mt-1">
                   {actionLoading ? "Saving..." : "Add Project"}
                 </button>
               </form>
@@ -472,9 +472,9 @@ export default function Dashboard() {
                 projects.map((p) =>
                   editingProjectId === p.id ? (
                     /* ---- Inline Edit Card ---- */
-                    <div key={p.id} className="bg-white border-2 border-violet-200 rounded-3xl p-5 shadow-md space-y-3">
+                    <div key={p.id} className="bg-white border-2 border-emerald-200 rounded-3xl p-5 shadow-md space-y-3">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-bold text-violet-600 uppercase tracking-wide">Editing Project</span>
+                        <span className="text-xs font-bold text-emerald-600 uppercase tracking-wide">Editing Project</span>
                         <button onClick={() => setEditingProjectId(null)} className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors">
                           <X className="w-4 h-4" />
                         </button>
@@ -488,10 +488,10 @@ export default function Dashboard() {
                         <input value={editProject.link || ""} onChange={(e) => setEditProject({ ...editProject, link: e.target.value })} placeholder="GitHub link" className={inputCls} />
                       </div>
                       <div className="flex items-center gap-2">
-                        <input type="checkbox" id={`feat-${p.id}`} checked={!!editProject.isFeatured} onChange={(e) => setEditProject({ ...editProject, isFeatured: e.target.checked })} className="h-4 w-4 accent-violet-600" />
+                        <input type="checkbox" id={`feat-${p.id}`} checked={!!editProject.isFeatured} onChange={(e) => setEditProject({ ...editProject, isFeatured: e.target.checked })} className="h-4 w-4 accent-emerald-600" />
                         <label htmlFor={`feat-${p.id}`} className="text-sm font-semibold text-slate-700">Featured</label>
                       </div>
-                      <button onClick={() => handleSaveProject(p.id)} className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-violet-600 text-white font-semibold text-sm hover:bg-violet-700 transition-all">
+                      <button onClick={() => handleSaveProject(p.id)} className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-all">
                         <Check className="w-4 h-4" /> Save Changes
                       </button>
                     </div>
@@ -515,10 +515,10 @@ export default function Dashboard() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2 ml-4 shrink-0">
-                        <button onClick={() => startEditProject(p)} className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-violet-600 hover:bg-violet-50 hover:border-violet-100 transition-all">
+                        <button onClick={() => startEditProject(p)} className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 hover:border-emerald-100 transition-all">
                           <Pencil className="w-4 h-4" />
                         </button>
-                        <button onClick={() => handleDeleteProject(p.id)} className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-rose-600 hover:bg-rose-50 hover:border-rose-100 transition-all">
+                        <button onClick={() => handleDeleteProject(p.id)} className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-100 transition-all">
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
@@ -537,7 +537,7 @@ export default function Dashboard() {
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-1 bg-white border border-slate-100 p-6 rounded-3xl shadow-sm">
               <form onSubmit={handleAddCertificate} className="space-y-3">
-                <div className="flex items-center gap-2 text-violet-600 mb-2">
+                <div className="flex items-center gap-2 text-emerald-600 mb-2">
                   <PlusCircle className="w-5 h-5" />
                   <h3 className="font-display font-bold text-lg text-slate-900">Upload Certificate</h3>
                 </div>
@@ -563,9 +563,9 @@ export default function Dashboard() {
                 </div>
                 <div>
                   <label className={labelCls}>Upload Certificate File</label>
-                  <input type="file" id="certFile" accept=".pdf,image/*" onChange={(e) => setCFile(e.target.files ? e.target.files[0] : null)} className="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 cursor-pointer" />
+                  <input type="file" id="certFile" accept=".pdf,image/*" onChange={(e) => setCFile(e.target.files ? e.target.files[0] : null)} className="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 cursor-pointer" />
                 </div>
-                <button type="submit" disabled={actionLoading} className="w-full py-2.5 rounded-xl bg-violet-600 text-white font-semibold text-sm hover:bg-violet-700 transition-all disabled:opacity-50 mt-1">
+                <button type="submit" disabled={actionLoading} className="w-full py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-all disabled:opacity-50 mt-1">
                   {actionLoading ? "Uploading..." : "Save Certificate"}
                 </button>
               </form>
@@ -589,17 +589,17 @@ export default function Dashboard() {
                       </div>
                       <p className="text-sm text-slate-400 font-semibold">{c.issuer}</p>
                       {c.fileUrl && (
-                        <a href={`${API_BASE_URL}${c.fileUrl}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-violet-600 hover:underline mt-1 font-semibold">
+                        <a href={`${API_BASE_URL}${c.fileUrl}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-emerald-600 hover:underline mt-1 font-semibold">
                           <Upload className="w-3.5 h-3.5" /> View Uploaded File
                         </a>
                       )}
                       {c.credentialLink && (
-                        <a href={c.credentialLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-rose-600 hover:underline mt-1 font-semibold ml-4">
+                        <a href={c.credentialLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-amber-600 hover:underline mt-1 font-semibold ml-4">
                           <FileText className="w-3.5 h-3.5" /> View Credential
                         </a>
                       )}
                     </div>
-                    <button onClick={() => handleDeleteCertificate(c.id)} className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-rose-600 hover:bg-rose-50 hover:border-rose-100 transition-all ml-4 shrink-0">
+                    <button onClick={() => handleDeleteCertificate(c.id)} className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-amber-600 hover:bg-amber-50 hover:border-amber-100 transition-all ml-4 shrink-0">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
@@ -615,7 +615,7 @@ export default function Dashboard() {
         {activeTab === "about" && editContent && (
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm space-y-2">
-              <div className="flex items-center gap-2 text-violet-600 mb-4">
+              <div className="flex items-center gap-2 text-emerald-600 mb-4">
                 <User className="w-5 h-5" />
                 <h3 className="font-display font-bold text-xl text-slate-900">Edit About Section</h3>
               </div>
@@ -700,7 +700,7 @@ export default function Dashboard() {
         {activeTab === "contact" && editContent && (
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm space-y-2">
-              <div className="flex items-center gap-2 text-violet-600 mb-4">
+              <div className="flex items-center gap-2 text-emerald-600 mb-4">
                 <Settings className="w-5 h-5" />
                 <h3 className="font-display font-bold text-xl text-slate-900">Edit Contact Info</h3>
               </div>

@@ -36,7 +36,7 @@ function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-violet-100 border border-violet-200 shadow-lg shadow-violet-100 flex items-center justify-center text-violet-600 hover:bg-violet-600 hover:text-white hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] transition-all duration-300 group"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 shadow-lg shadow-emerald-100 flex items-center justify-center text-emerald-600 hover:bg-emerald-600 hover:text-white hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] transition-all duration-300 group"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -70,12 +70,12 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
         </div>
         {/* Orbiting ring */}
         <motion.div
-          className="absolute inset-[-20px] rounded-full border border-violet-500/20"
+          className="absolute inset-[-20px] rounded-full border border-emerald-500/20"
           animate={{ rotate: 360 }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
-          className="absolute inset-[-35px] rounded-full border border-rose-500/10"
+          className="absolute inset-[-35px] rounded-full border border-amber-500/10"
           animate={{ rotate: -360 }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />
@@ -84,7 +84,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
       {/* Loading bar */}
       <motion.div className="mt-12 w-48 h-[2px] bg-slate-100 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600 rounded-full"
+          className="h-full bg-gradient-to-r from-emerald-600 via-amber-400 to-emerald-600 rounded-full"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: 1.6, ease: "easeInOut" }}
@@ -157,7 +157,7 @@ function Portfolio() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative w-full bg-white min-h-screen overflow-x-hidden selection:bg-violet-200 selection:text-violet-900 flex flex-col md:flex-row noise-overlay"
+          className="relative w-full bg-white min-h-screen overflow-x-hidden selection:bg-emerald-200 selection:text-emerald-900 flex flex-col md:flex-row noise-overlay"
         >
           {/* Ambient background layers */}
           <ParticleField />
@@ -212,7 +212,7 @@ export default function App() {
         <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 font-sans p-6 text-center">
           <h2 className="text-3xl font-display font-extrabold text-slate-900 mb-2">404 - Not Found</h2>
           <p className="text-slate-500 mb-6">The page you are looking for does not exist.</p>
-          <a href="/" className="px-5 py-2.5 rounded-xl bg-violet-600 text-white font-semibold text-sm hover:bg-violet-750 transition-all shadow-md">
+          <a href="/" className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-750 transition-all shadow-md">
             Go Home
           </a>
         </div>

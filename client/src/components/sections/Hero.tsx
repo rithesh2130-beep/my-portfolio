@@ -205,14 +205,14 @@ export default function Hero() {
         <motion.div
           custom={0}
           variants={fadeUp}
-          className="mb-8 flex items-center gap-2 rounded-full bg-violet-50/70 border border-violet-100/50 px-5 py-2 text-sm text-violet-700 font-semibold shadow-sm"
+          className="mb-8 flex items-center gap-2 rounded-full bg-emerald-50/70 border border-emerald-100/50 px-5 py-2 text-sm text-emerald-700 font-semibold shadow-sm"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
           <span>Open to Collaboration</span>
-          <Sparkles className="h-3.5 w-3.5 text-violet-500" />
+          <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
         </motion.div>
 
         {/* ---- Name ---- */}
@@ -244,10 +244,10 @@ export default function Hero() {
         <motion.p
           custom={0.5}
           variants={fadeUp}
-          className="font-mono text-lg sm:text-xl text-violet-600 font-semibold mb-8 h-8"
+          className="font-mono text-lg sm:text-xl text-emerald-600 font-semibold mb-8 h-8"
         >
           <span>{typedRole}</span>
-          <span className="ml-1 inline-block w-[2px] h-5 bg-violet-600 animate-pulse align-middle" />
+          <span className="ml-1 inline-block w-[2px] h-5 bg-emerald-600 animate-pulse align-middle" />
         </motion.p>
 
         {/* Humanized Subtitle */}
@@ -271,7 +271,7 @@ export default function Hero() {
               <div
                 key={m.label}
                 className="flex flex-col items-center min-w-[130px] rounded-3xl bg-white border border-slate-100 px-6 py-4.5
-                           shadow-sm hover:border-violet-200 hover:shadow-md transition-all duration-300"
+                           shadow-sm hover:border-emerald-200 hover:shadow-md transition-all duration-300"
               >
                 <span className="text-3xl sm:text-4xl font-display font-black text-slate-900">
                   {count}
@@ -295,8 +295,8 @@ export default function Hero() {
             href="/Rithesh_Raja_FullStack_1781190036910.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-2xl bg-violet-600 px-8 py-3.5 text-sm font-semibold text-white
-                       shadow-lg shadow-violet-600/20 hover:shadow-xl hover:shadow-violet-600/35
+            className="group inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-8 py-3.5 text-sm font-semibold text-white
+                       shadow-lg shadow-emerald-600/20 hover:shadow-xl hover:shadow-emerald-600/35
                        hover:scale-105 active:scale-95 transition-all duration-300"
           >
             <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
@@ -309,7 +309,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white
                        px-8 py-3.5 text-sm font-semibold text-slate-700
-                       hover:border-violet-300 hover:text-violet-600 hover:shadow-md
+                       hover:border-emerald-300 hover:text-emerald-600 hover:shadow-md
                        hover:scale-105 active:scale-95 transition-all duration-300"
           >
             <SiGithub className="h-4 w-4" />
@@ -322,7 +322,7 @@ export default function Hero() {
           href="#about"
           custom={1.2}
           variants={fadeUp}
-          className="flex flex-col items-center gap-1.5 text-slate-400 hover:text-violet-600 transition-colors"
+          className="flex flex-col items-center gap-1.5 text-slate-400 hover:text-emerald-600 transition-colors"
         >
           <span className="text-[10px] uppercase font-bold tracking-[0.25em]">Discover More</span>
           <motion.div

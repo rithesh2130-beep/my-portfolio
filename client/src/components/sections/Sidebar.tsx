@@ -84,12 +84,12 @@ export default function Sidebar({ activeSection }: SidebarProps) {
             </div>
             <div>
               <h2 className="text-sm font-display font-extrabold text-slate-900 leading-none">Pandi Rithesh Raja</h2>
-              <span className="text-[9px] font-bold text-violet-600 font-mono tracking-wide">MERN & AI Dev</span>
+              <span className="text-[9px] font-bold text-emerald-600 font-mono tracking-wide">MERN & AI Dev</span>
             </div>
           </div>
           <button
             onClick={() => setLocation(isAdminLoggedIn ? "/admin/dashboard" : "/admin")}
-            className="p-2 rounded-xl border border-slate-150 text-slate-400 hover:text-violet-600 bg-white shadow-sm transition-colors"
+            className="p-2 rounded-xl border border-slate-150 text-slate-400 hover:text-emerald-600 bg-white shadow-sm transition-colors"
           >
             {isAdminLoggedIn ? <ShieldCheck className="w-4 h-4 text-emerald-500" /> : <Terminal className="w-4 h-4" />}
           </button>
@@ -103,7 +103,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
               onClick={() => handleScrollTo(item.id)}
               className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeSection === item.id
-                  ? "bg-violet-50 text-violet-600"
+                  ? "bg-emerald-50 text-emerald-600"
                   : "text-slate-400 hover:text-slate-700"
               }`}
             >
@@ -134,7 +134,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
             style={{ rotateX: springRotateX, rotateY: springRotateY, transformStyle: "preserve-3d" }}
             animate={{ rotate: [0, -1.2, 1.2, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full max-w-[250px] bg-white rounded-[24px] border border-slate-200/80 shadow-lg shadow-slate-100/80 p-5 mt-[-1px] select-none hover:shadow-xl hover:border-violet-200/60 transition-shadow duration-300 group cursor-grab active:cursor-grabbing"
+            className="relative w-full max-w-[250px] bg-white rounded-[24px] border border-slate-200/80 shadow-lg shadow-slate-100/80 p-5 mt-[-1px] select-none hover:shadow-xl hover:border-emerald-200/60 transition-shadow duration-300 group cursor-grab active:cursor-grabbing"
           >
             {/* Slot */}
             <div className="w-10 h-2 bg-slate-100 border border-slate-200/60 rounded-full mx-auto mb-4" />
@@ -157,7 +157,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
               <h2 className="font-display font-extrabold text-slate-900 text-lg leading-tight tracking-tight">
                 Pandi Rithesh Raja
               </h2>
-              <p className="text-[11px] font-bold font-mono text-violet-600 uppercase tracking-wide">
+              <p className="text-[11px] font-bold font-mono text-emerald-600 uppercase tracking-wide">
                 MERN Stack & AI Developer
               </p>
               <p className="text-[10px] font-semibold text-slate-400">
@@ -182,15 +182,15 @@ export default function Sidebar({ activeSection }: SidebarProps) {
         {/* Social Links */}
         <div className="flex justify-center gap-3 mb-6 shrink-0">
           <a href="https://github.com/rithesh2130-beep" target="_blank" rel="noopener noreferrer"
-            className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-violet-600 hover:border-violet-100 hover:bg-violet-50/30 transition-all shadow-sm" aria-label="GitHub">
+            className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:bg-emerald-50/30 transition-all shadow-sm" aria-label="GitHub">
             <Github className="w-4 h-4" />
           </a>
           <a href="https://www.linkedin.com/in/rithesh2130" target="_blank" rel="noopener noreferrer"
-            className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-violet-600 hover:border-violet-100 hover:bg-violet-50/30 transition-all shadow-sm" aria-label="LinkedIn">
+            className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:bg-emerald-50/30 transition-all shadow-sm" aria-label="LinkedIn">
             <Linkedin className="w-4 h-4" />
           </a>
           <a href="/Rithesh_Raja_FullStack_1781190036910.pdf" target="_blank" rel="noopener noreferrer"
-            className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-violet-600 hover:border-violet-100 hover:bg-violet-50/30 transition-all shadow-sm" aria-label="Resume">
+            className="p-2.5 rounded-xl border border-slate-100 text-slate-400 hover:text-emerald-600 hover:border-emerald-100 hover:bg-emerald-50/30 transition-all shadow-sm" aria-label="Resume">
             <FileText className="w-4 h-4" />
           </a>
         </div>
@@ -199,7 +199,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
         <div className="pt-4 border-t border-slate-50 shrink-0 mt-auto">
           <button
             onClick={() => setLocation(isAdminLoggedIn ? "/admin/dashboard" : "/admin")}
-            className="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border border-slate-100 hover:border-violet-100 hover:bg-violet-50/30 text-slate-400 hover:text-violet-600 transition-all font-mono text-xs font-semibold"
+            className="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-2xl border border-slate-100 hover:border-emerald-100 hover:bg-emerald-50/30 text-slate-400 hover:text-emerald-600 transition-all font-mono text-xs font-semibold"
           >
             {isAdminLoggedIn ? (
               <><ShieldCheck className="w-4 h-4 text-emerald-500" /><span>Admin Console</span></>

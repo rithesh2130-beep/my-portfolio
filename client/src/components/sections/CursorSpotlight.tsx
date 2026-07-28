@@ -23,7 +23,7 @@ export default function CursorSpotlight() {
 
   return (
     <>
-      {/* Primary spotlight (Violet) */}
+      {/* Primary spotlight (Emerald) */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[1] h-full w-full"
         animate={{
@@ -32,7 +32,7 @@ export default function CursorSpotlight() {
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       />
-      {/* Secondary accent spotlight (Rose/Magenta) */}
+      {/* Secondary accent spotlight (Amber/Magenta) */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[1] h-full w-full"
         animate={{

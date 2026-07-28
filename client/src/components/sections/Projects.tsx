@@ -41,7 +41,7 @@ const fallbackProjects: Project[] = [
     year: '2026',
     link: 'https://lnkd.in/gK-uHCVh',
     iconName: 'Database',
-    iconBg: 'bg-rose-500/10 text-rose-600',
+    iconBg: 'bg-amber-500/10 text-amber-600',
     isFeatured: false,
     external: true
   },
@@ -54,7 +54,7 @@ const fallbackProjects: Project[] = [
     year: '2026',
     link: 'https://github.com/rithesh2130-beep/AI_Reflex_Arena',
     iconName: 'Activity',
-    iconBg: 'bg-violet-500/10 text-violet-600',
+    iconBg: 'bg-emerald-500/10 text-emerald-600',
     isFeatured: false
   },
   {
@@ -66,7 +66,7 @@ const fallbackProjects: Project[] = [
     year: '2025–2026',
     link: 'https://github.com/rithesh2130-beep',
     iconName: 'Code2',
-    iconBg: 'bg-violet-500/10 text-violet-600',
+    iconBg: 'bg-emerald-500/10 text-emerald-600',
     isFeatured: false
   }
 ];
@@ -119,10 +119,10 @@ function FeaturedProjectCard({ project }: { project: Project }) {
         }}
         className="group relative rounded-3xl overflow-hidden shadow-md shadow-slate-100"
       >
-        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600 bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite] opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
+        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-emerald-600 via-amber-400 to-emerald-600 bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite] opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
 
         <div className="relative rounded-3xl bg-white border border-slate-100 p-8 md:p-10 lg:p-12">
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600 opacity-60" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-600 via-amber-400 to-emerald-600 opacity-60" />
 
           <div className="flex flex-wrap gap-4 items-start justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -150,10 +150,10 @@ function FeaturedProjectCard({ project }: { project: Project }) {
           </div>
 
           <div className="max-w-3xl">
-            <h3 className="text-3xl font-display font-extrabold text-slate-900 mb-2 group-hover:text-violet-600 transition-colors duration-300">
+            <h3 className="text-3xl font-display font-extrabold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors duration-300">
               {project.title}
             </h3>
-            <p className="text-base text-violet-600 font-semibold mb-4">{project.subtitle}</p>
+            <p className="text-base text-emerald-600 font-semibold mb-4">{project.subtitle}</p>
             <p className="text-slate-500 leading-relaxed text-base md:text-md mb-8">
               {project.description}
             </p>
@@ -163,7 +163,7 @@ function FeaturedProjectCard({ project }: { project: Project }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs font-semibold rounded-full bg-slate-50 text-slate-500 border border-slate-100 hover:border-violet-200 hover:text-violet-600 transition-all duration-300"
+                className="px-3 py-1 text-xs font-semibold rounded-full bg-slate-50 text-slate-500 border border-slate-100 hover:border-emerald-200 hover:text-emerald-600 transition-all duration-300"
               >
                 {tag}
               </span>
@@ -174,15 +174,15 @@ function FeaturedProjectCard({ project }: { project: Project }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-violet-600 font-semibold group/link hover:gap-3 transition-all duration-300"
+            className="inline-flex items-center gap-2 text-emerald-600 font-semibold group/link hover:gap-3 transition-all duration-300"
           >
             <SiGithub className="w-5 h-5" />
             <span>View Source Code</span>
             <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
           </a>
 
-          <div className="absolute top-1/2 right-8 -translate-y-1/2 w-48 h-48 rounded-full bg-violet-100/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-24 w-32 h-32 rounded-full bg-rose-100/10 blur-3xl pointer-events-none" />
+          <div className="absolute top-1/2 right-8 -translate-y-1/2 w-48 h-48 rounded-full bg-emerald-100/10 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-24 w-32 h-32 rounded-full bg-amber-100/10 blur-3xl pointer-events-none" />
         </div>
       </div>
     </motion.div>
@@ -218,13 +218,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         }}
         className="group relative h-full rounded-3xl overflow-hidden hover:-translate-y-1 transition-transform"
       >
-        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-slate-100 via-slate-50 to-transparent opacity-100 group-hover:from-violet-600/30 group-hover:via-rose-400/20 group-hover:to-transparent transition-all duration-500" />
+        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-slate-100 via-slate-50 to-transparent opacity-100 group-hover:from-emerald-600/30 group-hover:via-amber-400/20 group-hover:to-transparent transition-all duration-500" />
 
-        <div className="relative h-full rounded-3xl bg-white border border-slate-100 group-hover:border-violet-200 p-6 flex flex-col transition-all duration-300 group-hover:shadow-[0_12px_30px_rgba(124,58,237,0.06)]">
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-violet-600/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative h-full rounded-3xl bg-white border border-slate-100 group-hover:border-emerald-200 p-6 flex flex-col transition-all duration-300 group-hover:shadow-[0_12px_30px_rgba(124,58,237,0.06)]">
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-600/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           <div className="flex items-start justify-between mb-5">
-            <div className={`p-2.5 rounded-xl bg-violet-50/70 border border-violet-100/50 text-violet-600`}>
+            <div className={`p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-100/50 text-emerald-600`}>
               <ProjectIcon iconName={project.iconName} />
             </div>
             <span className="text-xs font-mono tracking-wider text-slate-500 bg-slate-50 border border-slate-100 px-3 py-1 rounded-full">
@@ -232,10 +232,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </span>
           </div>
 
-          <h3 className="text-xl font-display font-extrabold text-slate-900 mb-1 group-hover:text-violet-600 transition-colors duration-300">
+          <h3 className="text-xl font-display font-extrabold text-slate-900 mb-1 group-hover:text-emerald-600 transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-xs text-violet-600 font-semibold mb-3">{project.subtitle}</p>
+          <p className="text-xs text-emerald-600 font-semibold mb-3">{project.subtitle}</p>
 
           <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
 
@@ -243,7 +243,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-0.5 text-[10px] font-semibold rounded-full bg-slate-50 text-slate-500 border border-slate-100 hover:border-violet-200 hover:text-violet-600 transition-all duration-300"
+                className="px-2.5 py-0.5 text-[10px] font-semibold rounded-full bg-slate-50 text-slate-500 border border-slate-100 hover:border-emerald-200 hover:text-emerald-600 transition-all duration-300"
               >
                 {tag}
               </span>
@@ -254,7 +254,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-violet-600 font-bold group/link transition-colors duration-300 mt-auto"
+            className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-emerald-600 font-bold group/link transition-colors duration-300 mt-auto"
           >
             {project.external ? (
               <ExternalLink className="w-3.5 h-3.5" />
@@ -301,8 +301,8 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative py-24 md:py-32 overflow-hidden bg-slate-50/50">
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-violet-100/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-rose-100/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-emerald-100/30 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-100/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6">
         <motion.div
@@ -315,12 +315,12 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4 text-slate-900">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600" />
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-emerald-600 via-amber-400 to-emerald-600" />
         </motion.div>
 
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
           <>

@@ -103,8 +103,8 @@ export default function Education() {
       className="relative py-24 md:py-32 px-6 overflow-hidden bg-white"
     >
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-rose-50/40 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-50/50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-50/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-50/50 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
@@ -137,7 +137,7 @@ export default function Education() {
               variants={itemVariants}
               className="flex items-center gap-3 mb-10"
             >
-              <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-100 text-rose-600 shadow-2xs">
+              <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-100 text-amber-600 shadow-2xs">
                 <GraduationCap className="w-5 h-5" />
               </div>
               <h3 className="text-2xl font-display font-bold text-slate-900">
@@ -171,12 +171,12 @@ export default function Education() {
                     <span
                       className={`timeline-dot${edu.active ? ' active' : ''} absolute -left-8 top-5 w-[22px] h-[22px] rounded-full border-2 flex items-center justify-center z-10 ${
                         edu.active
-                          ? 'border-rose-500 bg-rose-50 shadow-[0_0_12px_rgba(244,63,94,0.3)]'
+                          ? 'border-amber-500 bg-amber-50 shadow-[0_0_12px_rgba(244,63,94,0.3)]'
                           : 'border-slate-200 bg-white'
                       }`}
                     >
                       {edu.active && (
-                        <span className="block w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
+                        <span className="block w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
                       )}
                     </span>
 
@@ -186,7 +186,7 @@ export default function Education() {
                       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                       className={`glass-card rounded-3xl p-5 border ${
                         edu.active
-                          ? 'border-rose-200/80 bg-rose-50/30'
+                          ? 'border-amber-200/80 bg-amber-50/30'
                           : 'border-slate-100 bg-white shadow-sm'
                       }`}
                     >
@@ -201,7 +201,7 @@ export default function Education() {
                       )}
 
                       {edu.period && (
-                        <span className="inline-block text-xs font-bold text-rose-600 bg-rose-50 border border-rose-100 rounded-full px-3 py-0.5 mb-3">
+                        <span className="inline-block text-xs font-bold text-amber-600 bg-amber-50 border border-amber-100 rounded-full px-3 py-0.5 mb-3">
                           {edu.period}
                         </span>
                       )}
@@ -212,7 +212,7 @@ export default function Education() {
                             key={d}
                             className="text-slate-500 text-sm flex items-center gap-2"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-rose-500/70" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500/70" />
                             {d}
                           </li>
                         ))}
@@ -236,7 +236,7 @@ export default function Education() {
               variants={itemVariants}
               className="flex items-center gap-3 mb-10"
             >
-              <div className="p-2.5 rounded-xl bg-violet-50 border border-violet-100 text-violet-600 shadow-2xs">
+              <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-600 shadow-2xs">
                 <Award className="w-5 h-5" />
               </div>
               <h3 className="text-2xl font-display font-bold text-slate-900">
@@ -255,8 +255,8 @@ export default function Education() {
                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                     className={`glass-card rounded-3xl p-6 border cursor-default bg-white shadow-sm ${
                       isPrimary
-                        ? 'border-violet-150 hover:border-violet-300'
-                        : 'border-slate-100 hover:border-rose-300'
+                        ? 'border-emerald-150 hover:border-emerald-300'
+                        : 'border-slate-100 hover:border-amber-300'
                     }`}
                   >
                     <div className="flex items-start gap-4">
@@ -264,8 +264,8 @@ export default function Education() {
                       <div
                         className={`relative flex-shrink-0 p-3 rounded-xl ${
                           isPrimary
-                            ? 'bg-violet-50 text-violet-600 border border-violet-100'
-                            : 'bg-rose-50 text-rose-600 border border-rose-100'
+                            ? 'bg-emerald-50 text-emerald-600 border border-emerald-100'
+                            : 'bg-amber-50 text-amber-600 border border-amber-100'
                         }`}
                       >
                         {cert.icon === 'trophy' ? (
@@ -305,8 +305,8 @@ export default function Education() {
                           <span
                             className={`text-xs font-bold rounded-full px-3 py-0.5 ${
                               isPrimary
-                                ? 'text-violet-600 bg-violet-50 border border-violet-100'
-                                : 'text-rose-600 bg-rose-50 border border-rose-100'
+                                ? 'text-emerald-600 bg-emerald-50 border border-emerald-100'
+                                : 'text-amber-600 bg-amber-50 border border-amber-100'
                             }`}
                           >
                             {cert.year}
@@ -322,7 +322,7 @@ export default function Education() {
                             href={cert.fileUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-xs text-violet-600 hover:text-violet-700 font-extrabold mt-3.5 bg-violet-50/50 hover:bg-violet-50 px-3 py-1.5 rounded-xl border border-violet-100 transition-colors"
+                            className="inline-flex items-center gap-1.5 text-xs text-emerald-600 hover:text-emerald-700 font-extrabold mt-3.5 bg-emerald-50/50 hover:bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-100 transition-colors"
                           >
                             <FileText className="w-3.5 h-3.5" />
                             <span>View Certificate File</span>
@@ -334,7 +334,7 @@ export default function Education() {
                             href={cert.credentialLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-xs text-rose-600 hover:text-rose-700 font-extrabold mt-3.5 bg-rose-50/50 hover:bg-rose-50 px-3 py-1.5 rounded-xl border border-rose-100 transition-colors"
+                            className="inline-flex items-center gap-1.5 text-xs text-amber-600 hover:text-amber-700 font-extrabold mt-3.5 bg-amber-50/50 hover:bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-100 transition-colors"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
                             <span>Verify Credential</span>

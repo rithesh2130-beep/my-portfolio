@@ -89,9 +89,9 @@ export default function Contact() {
                 borderColor: 'rgba(124, 58, 237, 0.3)'
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-violet-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
+              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-emerald-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
             >
-              <Mail className="w-4 h-4 text-violet-600 flex-shrink-0" />
+              <Mail className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               <span className="text-sm">23hr1a3045@gmail.com</span>
             </motion.a>
 
@@ -104,9 +104,9 @@ export default function Contact() {
                 borderColor: 'rgba(124, 58, 237, 0.3)'
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-violet-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
+              className="flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-white border border-slate-200 text-slate-700 hover:text-emerald-600 transition-colors w-full sm:w-auto justify-center shadow-2xs font-semibold"
             >
-              <Phone className="w-4 h-4 text-violet-600 flex-shrink-0" />
+              <Phone className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               <span className="text-sm">+91 9347718219</span>
             </motion.a>
           </motion.div>
@@ -163,7 +163,7 @@ export default function Contact() {
             &copy; {currentYear} Pandi Rithesh Raja. All rights reserved.
           </p>
           <p className="text-slate-400/70 text-xs flex items-center justify-center gap-1.5 font-medium">
-            Handcrafted with <Code2 className="w-3.5 h-3.5 text-violet-600/70 inline" />
+            Handcrafted with <Code2 className="w-3.5 h-3.5 text-emerald-600/70 inline" />
           </p>
         </motion.footer>
       </motion.div>

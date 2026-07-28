@@ -129,8 +129,8 @@ export default function Skills() {
   return (
     <section id="skills" className="py-24 md:py-32 relative overflow-hidden bg-white">
       {/* Ambient glow */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-rose-50/40 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-violet-50/50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-amber-50/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-emerald-50/50 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -144,7 +144,7 @@ export default function Skills() {
           <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4 text-slate-900">
             Technical <span className="gradient-text">Arsenal</span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600" />
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-emerald-600 via-amber-400 to-emerald-600" />
         </motion.div>
 
         <motion.p
@@ -175,11 +175,11 @@ export default function Skills() {
               className="glass-card relative rounded-3xl bg-white border border-slate-100 overflow-hidden transition-all duration-300"
             >
               {/* Subtle gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/[0.02] to-rose-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/[0.02] to-amber-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Card Header */}
               <div className="relative z-10 flex items-center gap-3 px-6 py-4.5 border-b border-slate-50">
-                <category.icon className="w-5 h-5 text-violet-600" />
+                <category.icon className="w-5 h-5 text-emerald-600" />
                 <h3 className="font-display font-bold text-slate-900 text-lg">
                   {category.title}
                 </h3>
@@ -205,7 +205,7 @@ export default function Skills() {
                     }}
                     className="skill-pill inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-600 bg-slate-50/50 border border-slate-100 cursor-default transition-all duration-250 hover:bg-white"
                   >
-                    <skill.icon className="w-3.5 h-3.5 text-violet-600/80 group-hover:text-violet-600 transition-colors" />
+                    <skill.icon className="w-3.5 h-3.5 text-emerald-600/80 group-hover:text-emerald-600 transition-colors" />
                     {skill.name}
                   </motion.span>
                 ))}

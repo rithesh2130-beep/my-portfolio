@@ -76,16 +76,16 @@ export default function TopNavbar({ activeSection }: TopNavbarProps) {
                 onClick={() => handleScrollTo(item.id)}
                 className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
                   isActive
-                    ? "text-violet-600"
+                    ? "text-emerald-600"
                     : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
                 }`}
               >
-                <item.icon className={`w-3.5 h-3.5 ${isActive ? "text-violet-600" : "text-slate-400"}`} />
+                <item.icon className={`w-3.5 h-3.5 ${isActive ? "text-emerald-600" : "text-slate-400"}`} />
                 {item.label}
                 {isActive && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-xl bg-violet-50 border border-violet-100 -z-10"
+                    className="absolute inset-0 rounded-xl bg-emerald-50 border border-emerald-100 -z-10"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -100,7 +100,7 @@ export default function TopNavbar({ activeSection }: TopNavbarProps) {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl border text-xs font-mono font-semibold transition-all ${
             isAdminLoggedIn
               ? "border-emerald-100 bg-emerald-50 text-emerald-600 hover:bg-emerald-100"
-              : "border-slate-100 bg-slate-50 text-slate-500 hover:border-violet-100 hover:bg-violet-50 hover:text-violet-600"
+              : "border-slate-100 bg-slate-50 text-slate-500 hover:border-emerald-100 hover:bg-emerald-50 hover:text-emerald-600"
           }`}
         >
           {isAdminLoggedIn ? (
