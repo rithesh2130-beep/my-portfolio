@@ -594,7 +594,7 @@ export default function Dashboard() {
                         </a>
                       )}
                       {c.credentialLink && (
-                        <a href={c.credentialLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-teal-600 hover:underline mt-1 font-semibold ml-4">
+                        <a href={c.credentialLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-rose-600 hover:underline mt-1 font-semibold ml-4">
                           <FileText className="w-3.5 h-3.5" /> View Credential
                         </a>
                       )}

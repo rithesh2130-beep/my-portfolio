@@ -83,7 +83,7 @@
   --primary: 262 83% 58%; /* Modern Violet */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 180 100% 38%; /* Vibrant Teal/Cyan */
+  --secondary: 326 95% 60%; /* Vibrant Rose/Magenta */
   --secondary-foreground: 0 0% 100%;
 
   --muted: 210 40% 96.1%; /* slate-100 */
@@ -99,10 +99,10 @@
   --ring: 262 83% 58%;
   
   --chart-1: 262 83% 58%;
-  --chart-2: 180 100% 38%;
+  --chart-2: 326 95% 60%;
   --chart-3: 215.4 16.3% 46.9%;
   --chart-4: 262 83% 40%;
-  --chart-5: 180 100% 25%;
+  --chart-5: 326 95% 45%;
 
   --app-font-sans: 'Inter', system-ui, sans-serif;
   --app-font-serif: Georgia, serif;

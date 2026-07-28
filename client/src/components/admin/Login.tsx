@@ -64,7 +64,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-6 relative overflow-hidden">
       {/* Light colorful mesh overlay */}
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-violet-400/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-teal-400/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-rose-400/10 blur-[120px] pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
         {/* Head branding */}

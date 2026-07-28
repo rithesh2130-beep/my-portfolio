@@ -32,11 +32,11 @@ export default function CursorSpotlight() {
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
       />
-      {/* Secondary accent spotlight (Teal) */}
+      {/* Secondary accent spotlight (Rose/Magenta) */}
       <motion.div
         className="pointer-events-none fixed inset-0 z-[1] h-full w-full"
         animate={{
-          background: `radial-gradient(600px circle at ${position.x + 80}px ${position.y - 80}px, hsl(180 100% 38% / 0.03), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x + 80}px ${position.y - 80}px, hsl(326 95% 60% / 0.03), transparent 40%)`,
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.7 }}

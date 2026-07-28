@@ -93,7 +93,7 @@ export default function About() {
     <section id="about" className="py-24 md:py-32 relative overflow-hidden bg-slate-50/50">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-100/40 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-100/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-rose-100/30 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -107,7 +107,7 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4 text-slate-900">
             About <span className="gradient-text">Me</span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-600 via-teal-400 to-violet-600" />
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600" />
         </motion.div>
 
         {/* Two-column layout */}
@@ -199,7 +199,7 @@ export default function About() {
                             <span className="text-transparent select-none">
                               {"    "}
                             </span>
-                            <span className="text-teal-600 font-semibold">{item}</span>
+                            <span className="text-rose-600 font-semibold">{item}</span>
                             {aIdx < line.array!.length - 1 && (
                               <span className="text-slate-400">,</span>
                             )}
@@ -216,7 +216,7 @@ export default function About() {
                       </span>
                     ) : (
                       <>
-                        <span className="text-teal-600 font-semibold">{line.value}</span>
+                        <span className="text-rose-600 font-semibold">{line.value}</span>
                         {idx < terminalBody.length - 1 && (
                           <span className="text-slate-400">,</span>
                         )}
@@ -234,7 +234,7 @@ export default function About() {
                 {/* Blinking cursor */}
                 <div className="mt-3 flex items-center gap-1.5">
                   <span className="text-violet-600">❯</span>
-                  <span className="inline-block w-2 h-4.5 bg-violet-600 animate-pulse rounded-sm" />
+                  <span className="inline-block w-2.5 h-4.5 bg-violet-600 animate-pulse rounded-sm" />
                 </div>
               </div>
             </div>
@@ -259,7 +259,7 @@ export default function About() {
               className="glass-card group relative rounded-3xl p-6 text-center bg-white border border-slate-100 shadow-sm cursor-default transition-all duration-300"
             >
               {/* Glow accent */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-600/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-600/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />-none" />
 
               <div className="relative z-10">
                 <stat.icon className="w-6 h-6 text-violet-600 mx-auto mb-3 opacity-60 group-hover:opacity-100 transition-opacity" />

@@ -103,7 +103,7 @@ export default function Education() {
       className="relative py-24 md:py-32 px-6 overflow-hidden bg-white"
     >
       {/* Background glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-teal-50/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-rose-50/40 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-50/50 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
@@ -137,7 +137,7 @@ export default function Education() {
               variants={itemVariants}
               className="flex items-center gap-3 mb-10"
             >
-              <div className="p-2.5 rounded-xl bg-teal-50 border border-teal-100 text-teal-600 shadow-2xs">
+              <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-100 text-rose-600 shadow-2xs">
                 <GraduationCap className="w-5 h-5" />
               </div>
               <h3 className="text-2xl font-display font-bold text-slate-900">
@@ -171,12 +171,12 @@ export default function Education() {
                     <span
                       className={`timeline-dot${edu.active ? ' active' : ''} absolute -left-8 top-5 w-[22px] h-[22px] rounded-full border-2 flex items-center justify-center z-10 ${
                         edu.active
-                          ? 'border-teal-500 bg-teal-50 shadow-[0_0_12px_rgba(20,184,166,0.3)]'
+                          ? 'border-rose-500 bg-rose-50 shadow-[0_0_12px_rgba(244,63,94,0.3)]'
                           : 'border-slate-200 bg-white'
                       }`}
                     >
                       {edu.active && (
-                        <span className="block w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse" />
+                        <span className="block w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
                       )}
                     </span>
 
@@ -186,7 +186,7 @@ export default function Education() {
                       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                       className={`glass-card rounded-3xl p-5 border ${
                         edu.active
-                          ? 'border-teal-200/80 bg-teal-50/30'
+                          ? 'border-rose-200/80 bg-rose-50/30'
                           : 'border-slate-100 bg-white shadow-sm'
                       }`}
                     >
@@ -201,7 +201,7 @@ export default function Education() {
                       )}
 
                       {edu.period && (
-                        <span className="inline-block text-xs font-bold text-teal-600 bg-teal-50 border border-teal-100 rounded-full px-3 py-0.5 mb-3">
+                        <span className="inline-block text-xs font-bold text-rose-600 bg-rose-50 border border-rose-100 rounded-full px-3 py-0.5 mb-3">
                           {edu.period}
                         </span>
                       )}
@@ -212,7 +212,7 @@ export default function Education() {
                             key={d}
                             className="text-slate-500 text-sm flex items-center gap-2"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-teal-500/70" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-rose-500/70" />
                             {d}
                           </li>
                         ))}
@@ -256,7 +256,7 @@ export default function Education() {
                     className={`glass-card rounded-3xl p-6 border cursor-default bg-white shadow-sm ${
                       isPrimary
                         ? 'border-violet-150 hover:border-violet-300'
-                        : 'border-slate-100 hover:border-teal-300'
+                        : 'border-slate-100 hover:border-rose-300'
                     }`}
                   >
                     <div className="flex items-start gap-4">
@@ -265,7 +265,7 @@ export default function Education() {
                         className={`relative flex-shrink-0 p-3 rounded-xl ${
                           isPrimary
                             ? 'bg-violet-50 text-violet-600 border border-violet-100'
-                            : 'bg-teal-50 text-teal-600 border border-teal-100'
+                            : 'bg-rose-50 text-rose-600 border border-rose-100'
                         }`}
                       >
                         {cert.icon === 'trophy' ? (
@@ -306,7 +306,7 @@ export default function Education() {
                             className={`text-xs font-bold rounded-full px-3 py-0.5 ${
                               isPrimary
                                 ? 'text-violet-600 bg-violet-50 border border-violet-100'
-                                : 'text-teal-600 bg-teal-50 border border-teal-100'
+                                : 'text-rose-600 bg-rose-50 border border-rose-100'
                             }`}
                           >
                             {cert.year}
@@ -334,7 +334,7 @@ export default function Education() {
                             href={cert.credentialLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-xs text-teal-600 hover:text-teal-700 font-extrabold mt-3.5 bg-teal-50/50 hover:bg-teal-50 px-3 py-1.5 rounded-xl border border-teal-100 transition-colors"
+                            className="inline-flex items-center gap-1.5 text-xs text-rose-600 hover:text-rose-700 font-extrabold mt-3.5 bg-rose-50/50 hover:bg-rose-50 px-3 py-1.5 rounded-xl border border-rose-100 transition-colors"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
                             <span>Verify Credential</span>

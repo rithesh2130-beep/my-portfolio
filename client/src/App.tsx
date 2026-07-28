@@ -75,7 +75,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
-          className="absolute inset-[-35px] rounded-full border border-teal-500/10"
+          className="absolute inset-[-35px] rounded-full border border-rose-500/10"
           animate={{ rotate: -360 }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />
@@ -84,7 +84,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
       {/* Loading bar */}
       <motion.div className="mt-12 w-48 h-[2px] bg-slate-100 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-violet-600 via-teal-400 to-violet-600 rounded-full"
+          className="h-full bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600 rounded-full"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: 1.6, ease: "easeInOut" }}

@@ -30,7 +30,7 @@ export default function ParticleField() {
         vy: (Math.random() - 0.5) * 0.35,
         size: Math.random() * 2 + 0.8,
         opacity: Math.random() * 0.4 + 0.1, // slightly dimmer for light mode
-        hue: Math.random() > 0.5 ? 180 : 262, // matching theme teal (180) and violet (262)
+        hue: Math.random() > 0.5 ? 326 : 262, // matching theme rose (326) and violet (262)
       });
     }
     return arr;

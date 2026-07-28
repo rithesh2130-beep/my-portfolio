@@ -41,7 +41,7 @@ const fallbackProjects: Project[] = [
     year: '2026',
     link: 'https://lnkd.in/gK-uHCVh',
     iconName: 'Database',
-    iconBg: 'bg-teal-500/10 text-teal-600',
+    iconBg: 'bg-rose-500/10 text-rose-600',
     isFeatured: false,
     external: true
   },
@@ -119,10 +119,10 @@ function FeaturedProjectCard({ project }: { project: Project }) {
         }}
         className="group relative rounded-3xl overflow-hidden shadow-md shadow-slate-100"
       >
-        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-teal-400 to-violet-600 bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite] opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
+        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600 bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite] opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
 
         <div className="relative rounded-3xl bg-white border border-slate-100 p-8 md:p-10 lg:p-12">
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-600 via-teal-400 to-violet-600 opacity-60" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600 opacity-60" />
 
           <div className="flex flex-wrap gap-4 items-start justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -182,13 +182,14 @@ function FeaturedProjectCard({ project }: { project: Project }) {
           </a>
 
           <div className="absolute top-1/2 right-8 -translate-y-1/2 w-48 h-48 rounded-full bg-violet-100/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-24 w-32 h-32 rounded-full bg-teal-100/10 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-24 w-32 h-32 rounded-full bg-rose-100/10 blur-3xl pointer-events-none" />
         </div>
       </div>
     </motion.div>
   );
 }
 
+// ... unchanged code ...
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { tilt, handleMouseMove, handleMouseLeave } = useTilt();
   const ref = useRef<HTMLDivElement>(null);
@@ -217,7 +218,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         }}
         className="group relative h-full rounded-3xl overflow-hidden hover:-translate-y-1 transition-transform"
       >
-        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-slate-100 via-slate-50 to-transparent opacity-100 group-hover:from-violet-600/30 group-hover:via-teal-400/20 group-hover:to-transparent transition-all duration-500" />
+        <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-slate-100 via-slate-50 to-transparent opacity-100 group-hover:from-violet-600/30 group-hover:via-rose-400/20 group-hover:to-transparent transition-all duration-500" />
 
         <div className="relative h-full rounded-3xl bg-white border border-slate-100 group-hover:border-violet-200 p-6 flex flex-col transition-all duration-300 group-hover:shadow-[0_12px_30px_rgba(124,58,237,0.06)]">
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-violet-600/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -301,7 +302,7 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-24 md:py-32 overflow-hidden bg-slate-50/50">
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-violet-100/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-teal-100/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-rose-100/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6">
         <motion.div
@@ -314,7 +315,7 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4 text-slate-900">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-600 via-teal-400 to-violet-600" />
+          <div className="w-24 h-1 mx-auto rounded-full bg-gradient-to-r from-violet-600 via-rose-400 to-violet-600" />
         </motion.div>
 
         {loading ? (
