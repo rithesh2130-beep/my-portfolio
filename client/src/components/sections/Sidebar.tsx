@@ -120,7 +120,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
         {/* Skeuomorphic Hanging ID Badge */}
         <div className="relative w-full flex flex-col items-center mb-8 shrink-0">
           {/* Lanyard Line */}
-          <div className="w-[3px] bg-slate-200 h-10 shadow-inner" />
+          <div className="w-[3px] bg-slate-200 h-24 shadow-inner" />
 
           {/* Clip Clasp */}
           <div className="w-7 h-5 bg-gradient-to-r from-slate-300 via-slate-100 to-slate-400 border border-slate-300 rounded shadow-sm flex flex-col items-center justify-end pb-0.5 z-10 -mt-1">
@@ -134,7 +134,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
             style={{ rotateX: springRotateX, rotateY: springRotateY, transformStyle: "preserve-3d" }}
             animate={{ rotate: [0, -1.2, 1.2, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full max-w-[250px] bg-white/40 backdrop-blur-xl rounded-[24px] border border-white/60 shadow-lg shadow-slate-100/50 p-5 mt-[-1px] select-none hover:shadow-xl hover:border-emerald-300/60 transition-all duration-300 group cursor-grab active:cursor-grabbing"
+            className="relative w-full max-w-[250px] bg-white/45 backdrop-blur-xl rounded-[24px] border border-emerald-600/25 shadow-lg shadow-emerald-900/5 p-5 mt-[-1px] select-none hover:shadow-xl hover:border-emerald-400 transition-all duration-300 group cursor-grab active:cursor-grabbing"
           >
             {/* Slot */}
             <div className="w-10 h-2 bg-slate-200/50 border border-slate-300/30 rounded-full mx-auto mb-4" />
