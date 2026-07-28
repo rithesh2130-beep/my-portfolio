@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 import Sidebar from "./components/sections/Sidebar";
+import TopNavbar from "./components/sections/TopNavbar";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
@@ -165,11 +166,15 @@ function Portfolio() {
           {/* Mesh gradient background */}
           <div className="fixed inset-0 z-0 mesh-gradient pointer-events-none" />
           
-          {/* Sticky Left Sidebar */}
+          {/* Sticky Left Sidebar (ID Card only) */}
           <Sidebar activeSection={activeSection} />
 
           {/* Right Scrollable Content Pane */}
           <main className="flex-grow min-w-0 relative z-10 flex flex-col bg-slate-50/20 md:pl-80 lg:pl-96">
+            {/* Top Navbar with section links — desktop only */}
+            <div className="hidden md:block">
+              <TopNavbar activeSection={activeSection} />
+            </div>
             <Hero />
             <div className="section-divider" />
             <About />
