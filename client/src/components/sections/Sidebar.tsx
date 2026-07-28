@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import {
+  Home,
   User,
   Code2,
   FolderGit2,
@@ -65,21 +66,18 @@ export default function Sidebar({ activeSection }: SidebarProps) {
     mouseY.set(0);
   };
 
-  const handleScrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = window.innerWidth < 768 ? -120 : -72;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+  const handleNavigate = (path: string) => {
+    setLocation(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const navItems = [
-    { label: "About", id: "about", icon: User },
-    { label: "Skills", id: "skills", icon: Code2 },
-    { label: "Projects", id: "projects", icon: FolderGit2 },
-    { label: "Education", id: "education", icon: GraduationCap },
-    { label: "Contact", id: "contact", icon: Mail },
+    { label: "Home", id: "home", path: "/", icon: Home },
+    { label: "About", id: "about", path: "/about", icon: User },
+    { label: "Skills", id: "skills", path: "/skills", icon: Code2 },
+    { label: "Projects", id: "projects", path: "/projects", icon: FolderGit2 },
+    { label: "Education", id: "education", path: "/education", icon: GraduationCap },
+    { label: "Contact", id: "contact", path: "/contact", icon: Mail },
   ];
 
   return (
@@ -109,7 +107,7 @@ export default function Sidebar({ activeSection }: SidebarProps) {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleScrollTo(item.id)}
+              onClick={() => handleNavigate(item.path)}
               className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 activeSection === item.id
                   ? "bg-emerald-50 text-emerald-600"

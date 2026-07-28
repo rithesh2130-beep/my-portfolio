@@ -36,7 +36,7 @@ function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 shadow-lg shadow-emerald-100 flex items-center justify-center text-emerald-600 hover:bg-emerald-600 hover:text-white hover:shadow-[0_0_25px_rgba(124,58,237,0.4)] transition-all duration-300 group"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 shadow-lg shadow-emerald-100 flex items-center justify-center text-emerald-600 hover:bg-emerald-600 hover:text-white hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all duration-300 group"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -104,43 +104,26 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   );
 }
 
-function Portfolio() {
+interface LayoutProps {
+  children: React.ReactNode;
+  activeSection: string;
+}
+
+function PortfolioLayout({ children, activeSection }: LayoutProps) {
   const [loading, setLoading] = useState(true);
-  const [activeSection, setActiveSection] = useState("about");
 
-  // IntersectionObserver for Scroll-Spy
+  // Skip loading screen if already loaded in this session
   useEffect(() => {
-    if (loading) return;
-    const sections = ["about", "skills", "projects", "education", "contact"];
-    const observerOptions = {
-      root: null,
-      rootMargin: "-25% 0px -55% 0px", // focus area in the viewport
-      threshold: 0.05,
-    };
+    const hasLoaded = sessionStorage.getItem("hasLoadedPortfolio");
+    if (hasLoaded) {
+      setLoading(false);
+    }
+  }, []);
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    // Give DOM elements a tiny moment to mount
-    const timer = setTimeout(() => {
-      sections.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
-      });
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-      observer.disconnect();
-    };
-  }, [loading]);
+  const handleLoadingComplete = () => {
+    setLoading(false);
+    sessionStorage.setItem("hasLoadedPortfolio", "true");
+  };
 
   return (
     <>
@@ -148,7 +131,7 @@ function Portfolio() {
         {loading && (
           <LoadingScreen
             key="loader"
-            onComplete={() => setLoading(false)}
+            onComplete={handleLoadingComplete}
           />
         )}
       </AnimatePresence>
@@ -169,23 +152,24 @@ function Portfolio() {
           {/* Sticky Left Sidebar (ID Card only) */}
           <Sidebar activeSection={activeSection} />
 
-          {/* Right Scrollable Content Pane */}
-          <main className="flex-grow min-w-0 relative z-10 flex flex-col bg-slate-50/20 md:pl-80 lg:pl-96">
-            {/* Top Navbar with section links — desktop only */}
-            <div className="hidden md:block">
-              <TopNavbar activeSection={activeSection} />
+          {/* Right Content Pane */}
+          <main className="flex-grow min-w-0 relative z-10 flex flex-col bg-slate-50/20 md:pl-80 lg:pl-96 min-h-screen">
+            {/* Top Navbar with page links */}
+            <TopNavbar activeSection={activeSection} />
+            <div className="flex-grow">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeSection}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="w-full h-full"
+                >
+                  {children}
+                </motion.div>
+              </AnimatePresence>
             </div>
-            <Hero />
-            <div className="section-divider" />
-            <About />
-            <div className="section-divider" />
-            <Skills />
-            <div className="section-divider" />
-            <Projects />
-            <div className="section-divider" />
-            <Education />
-            <div className="section-divider" />
-            <Contact />
           </main>
           <ScrollToTop />
         </motion.div>
@@ -204,15 +188,58 @@ export default function App() {
 
   return (
     <Switch>
-      <Route path="/" component={Portfolio} />
+      {/* Home Route */}
+      <Route path="/">
+        <PortfolioLayout activeSection="home">
+          <Hero />
+        </PortfolioLayout>
+      </Route>
+
+      {/* About Route */}
+      <Route path="/about">
+        <PortfolioLayout activeSection="about">
+          <About />
+        </PortfolioLayout>
+      </Route>
+
+      {/* Skills Route */}
+      <Route path="/skills">
+        <PortfolioLayout activeSection="skills">
+          <Skills />
+        </PortfolioLayout>
+      </Route>
+
+      {/* Projects Route */}
+      <Route path="/projects">
+        <PortfolioLayout activeSection="projects">
+          <Projects />
+        </PortfolioLayout>
+      </Route>
+
+      {/* Education Route */}
+      <Route path="/education">
+        <PortfolioLayout activeSection="education">
+          <Education />
+        </PortfolioLayout>
+      </Route>
+
+      {/* Contact Route */}
+      <Route path="/contact">
+        <PortfolioLayout activeSection="contact">
+          <Contact />
+        </PortfolioLayout>
+      </Route>
+
+      {/* Admin Panel */}
       <Route path="/admin" component={Login} />
       <Route path="/admin/dashboard" component={Dashboard} />
-      {/* Fallback */}
+
+      {/* Fallback 404 */}
       <Route>
         <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 font-sans p-6 text-center">
           <h2 className="text-3xl font-display font-extrabold text-slate-900 mb-2">404 - Not Found</h2>
           <p className="text-slate-500 mb-6">The page you are looking for does not exist.</p>
-          <a href="/" className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-750 transition-all shadow-md">
+          <a href="/" className="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition-all shadow-md">
             Go Home
           </a>
         </div>

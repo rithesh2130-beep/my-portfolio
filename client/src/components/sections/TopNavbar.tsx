@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import {
+  Home,
   User,
   Code2,
   FolderGit2,
@@ -17,15 +18,16 @@ interface TopNavbarProps {
 }
 
 const navItems = [
-  { label: "About", id: "about", icon: User },
-  { label: "Skills", id: "skills", icon: Code2 },
-  { label: "Projects", id: "projects", icon: FolderGit2 },
-  { label: "Education", id: "education", icon: GraduationCap },
-  { label: "Contact", id: "contact", icon: Mail },
+  { label: "Home", id: "home", path: "/", icon: Home },
+  { label: "About", id: "about", path: "/about", icon: User },
+  { label: "Skills", id: "skills", path: "/skills", icon: Code2 },
+  { label: "Projects", id: "projects", path: "/projects", icon: FolderGit2 },
+  { label: "Education", id: "education", path: "/education", icon: GraduationCap },
+  { label: "Contact", id: "contact", path: "/contact", icon: Mail },
 ];
 
 export default function TopNavbar({ activeSection }: TopNavbarProps) {
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -46,12 +48,9 @@ export default function TopNavbar({ activeSection }: TopNavbarProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleScrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.pageYOffset - 72;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+  const handleNavigate = (path: string) => {
+    setLocation(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -73,7 +72,7 @@ export default function TopNavbar({ activeSection }: TopNavbarProps) {
             return (
               <button
                 key={item.id}
-                onClick={() => handleScrollTo(item.id)}
+                onClick={() => handleNavigate(item.path)}
                 className={`relative flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 ${
                   isActive
                     ? "text-emerald-600"
