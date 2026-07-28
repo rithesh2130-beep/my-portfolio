@@ -37,11 +37,11 @@ function useCountUp(target: number, duration = 2000, startOnView = true) {
 /*  Floating background orbs                                          */
 /* ------------------------------------------------------------------ */
 const orbs = [
-  { size: 380, x: "10%", y: "15%", color: "hsl(262,80%,58%)", delay: 0 },
-  { size: 260, x: "75%", y: "10%", color: "hsl(180,100%,38%)", delay: 1.2 },
-  { size: 180, x: "60%", y: "70%", color: "hsl(262,80%,58%)", delay: 0.6 },
-  { size: 320, x: "85%", y: "55%", color: "hsl(180,100%,38%)", delay: 1.8 },
-  { size: 140, x: "25%", y: "80%", color: "hsl(262,80%,58%)", delay: 2.4 },
+  { size: 380, x: "10%", y: "15%", color: "hsl(142,76%,40%)", delay: 0 },
+  { size: 260, x: "75%", y: "10%", color: "hsl(38,95%,55%)", delay: 1.2 },
+  { size: 180, x: "60%", y: "70%", color: "hsl(142,76%,40%)", delay: 0.6 },
+  { size: 320, x: "85%", y: "55%", color: "hsl(38,95%,55%)", delay: 1.8 },
+  { size: 140, x: "25%", y: "80%", color: "hsl(142,76%,40%)", delay: 2.4 },
 ];
 
 /* ------------------------------------------------------------------ */

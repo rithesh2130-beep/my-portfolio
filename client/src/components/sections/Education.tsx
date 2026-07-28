@@ -152,7 +152,7 @@ export default function Education() {
                 className="timeline-line absolute left-[11px] top-2 bottom-2 w-[2px]"
                 style={{
                   background:
-                    'linear-gradient(to bottom, hsl(262,83%,58%), hsl(262,83%,58%,0.15))',
+                    'linear-gradient(to bottom, hsl(142,76%,40%), hsl(142,76%,40%,0.15))',
                 }}
                 initial={{ scaleY: 0, originY: 0 }}
                 whileInView={{ scaleY: 1 }}
